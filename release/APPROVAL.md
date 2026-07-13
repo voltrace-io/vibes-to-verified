@@ -22,8 +22,8 @@ All deterministic checks pass. Prior independent-review findings are repaired an
 | Gate | Result |
 |---|---|
 | Required artifact validator | PASS — 37 required files |
-| Contract tests | PASS — 48/48 against the manifest-bound candidate |
-| Privacy scan | PASS — 50 tracked files, including text and supported media metadata |
+| Contract tests | PASS — 53/53 against the manifest-bound candidate |
+| Privacy scan | PASS — 50 tracked files enumerated; supported text and media metadata inspected |
 | Ruff static analysis | PASS |
 | Python compilation | PASS |
 | Staged Git whitespace check | PASS |
@@ -68,16 +68,17 @@ The package includes:
 
 ## Approval Sequence
 
-1. Rebuild `release/manifest.json` after this card is final.
-2. Run the complete verification suite and require 48/48 tests.
-3. Commit the immutable candidate locally.
-4. Run fresh independent contract, privacy, and editorial reviews against that exact commit.
-5. Repair any blocker, rebuild the manifest, and repeat if required.
-6. Present the exact Article, launch post, replies, media, hashes, and commit.
-7. Request GitHub publication approval.
-8. Read back the public repository and CI result.
-9. Bind the verified repository and case-study URLs into the Article, present the exact Article candidate, and request X Article approval.
-10. Read back the Article URL.
-11. Bind the verified Article URL into the launch copy, show the final launch bundle, and request posting approval.
+1. Stage every tracked candidate change except `release/manifest.json`.
+2. Rebuild `release/manifest.json` from the staged Git blobs and stage it.
+3. Run the complete verification suite and require 53/53 tests.
+4. Commit the immutable candidate locally.
+5. Run fresh independent contract, privacy, and editorial reviews against that exact commit.
+6. Repair any blocker, rebuild the manifest, and repeat if required.
+7. Present the exact Article, launch post, replies, media, hashes, and commit.
+8. Request GitHub publication approval.
+9. Read back the public repository and CI result.
+10. Bind the verified repository and case-study URLs into the Article, present the exact Article candidate, and request X Article approval.
+11. Read back the Article URL.
+12. Bind the verified Article URL into the launch copy, show the final launch bundle, and request posting approval.
 
 Failure or ambiguity at any stage keeps the next gate closed.

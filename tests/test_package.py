@@ -165,6 +165,28 @@ class PackageContractTests(unittest.TestCase):
             validate.validate_semantics(card),
         )
 
+    def test_mixed_v2_evidence_rejects_wrong_claim_record(self):
+        card = self._v4_base_card()
+        card["v2v_level"] = "V2"
+        card["verdict"] = "YELLOW"
+        bad = copy.deepcopy(card["evidence"][0])
+        bad["supports"] = ["C-99"]
+        card["evidence"].append(bad)
+        errors = validate.validate_semantics(card)
+        self.assertIn("V2 evidence must support the card claim_id", errors)
+        self.assertIn("V2 test evidence must support the card claim_id", errors)
+
+    def test_mixed_v2_evidence_rejects_stale_artifact_record(self):
+        card = self._v4_base_card()
+        card["v2v_level"] = "V2"
+        card["verdict"] = "YELLOW"
+        bad = copy.deepcopy(card["evidence"][0])
+        bad["subject_artifact"] = "sha256:stale"
+        card["evidence"].append(bad)
+        errors = validate.validate_semantics(card)
+        self.assertIn("V2 evidence must match scope.artifact", errors)
+        self.assertIn("V2 test evidence must match scope.artifact", errors)
+
     def test_green_rejects_open_blockers(self):
         card = copy.deepcopy(self.template)
         card["verdict"] = "GREEN"
@@ -336,6 +358,28 @@ class PackageContractTests(unittest.TestCase):
             validate.validate_semantics(card),
         )
 
+    def test_mixed_v3_reviews_reject_wrong_claim_record(self):
+        card = self._v4_base_card()
+        card["v2v_level"] = "V3"
+        card["verdict"] = "YELLOW"
+        bad = copy.deepcopy(card["evidence"][1])
+        bad["supports"] = ["C-99"]
+        card["evidence"].append(bad)
+        errors = validate.validate_semantics(card)
+        self.assertIn("V3 evidence must support the card claim_id", errors)
+        self.assertIn("V3 review evidence must support the card claim_id", errors)
+
+    def test_green_rejects_negative_review_with_survived_disposition(self):
+        card = self._v4_base_card()
+        card["v2v_level"] = "V3"
+        card["evidence"][1]["result"] = "refuted"
+        errors = validate.validate_semantics(card)
+        self.assertIn(
+            "survived main-claim disposition conflicts with a refuted or blocked review",
+            errors,
+        )
+        self.assertIn("GREEN cannot accompany a refuted or blocked review result", errors)
+
     def test_v4_operational_proof_must_support_main_claim(self):
         card = self._v4_base_card()
         card["operational_proof"] = self._valid_operational_proof()
@@ -353,6 +397,17 @@ class PackageContractTests(unittest.TestCase):
         errors = validate.validate_semantics(card)
         self.assertIn("V4 runtime proof must match scope.artifact", errors)
         self.assertIn("V4 readback proof must match scope.artifact", errors)
+
+    def test_mixed_v4_runtime_rejects_stale_artifact_record(self):
+        card = self._v4_base_card()
+        card["operational_proof"] = self._valid_operational_proof()
+        bad = copy.deepcopy(card["operational_proof"][0])
+        bad["subject_artifact"] = "sha256:stale"
+        card["operational_proof"].append(bad)
+        self.assertIn(
+            "V4 runtime proof must match scope.artifact",
+            validate.validate_semantics(card),
+        )
 
     def test_v4_requires_operational_proof(self):
         card = self._v4_base_card()
@@ -566,15 +621,17 @@ class PackageContractTests(unittest.TestCase):
                 self.assertEqual(image.size, dimensions)
                 self.assertEqual(len(image.getexif()), 0)
 
-    def test_release_manifest_matches_artifacts(self):
+    def test_release_manifest_matches_staged_commit_blobs(self):
         manifest = json.loads((ROOT / "release" / "manifest.json").read_text(encoding="utf-8"))
         self.assertEqual(manifest["status"], "local_candidate_not_published")
         self.assertTrue(all(value == "not_approved" for value in manifest["publication_gates"].values()))
         for artifact in manifest["artifacts"]:
-            path = ROOT / artifact["path"]
+            blob = subprocess.check_output(
+                ["git", "show", f":{artifact['path']}"], cwd=ROOT
+            )
             with self.subTest(path=artifact["path"]):
-                self.assertEqual(path.stat().st_size, artifact["size_bytes"])
-                self.assertEqual(hashlib.sha256(path.read_bytes()).hexdigest(), artifact["sha256"])
+                self.assertEqual(len(blob), artifact["size_bytes"])
+                self.assertEqual(hashlib.sha256(blob).hexdigest(), artifact["sha256"])
 
     def test_release_manifest_covers_every_tracked_file_except_itself(self):
         manifest = json.loads((ROOT / "release" / "manifest.json").read_text(encoding="utf-8"))

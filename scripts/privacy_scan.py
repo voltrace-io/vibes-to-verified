@@ -204,7 +204,7 @@ def main() -> int:
             print(f"- {finding}")
         return 1
     print("PRIVACY SCAN PASSED")
-    print(f"files_scanned={len(files)}")
+    print(f"files_enumerated={len(files)}")
     return 0
 
 

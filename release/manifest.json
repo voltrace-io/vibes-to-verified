@@ -111,8 +111,8 @@
     },
     {
       "path": "media/exports/github-social-card.svg",
-      "size_bytes": 3630,
-      "sha256": "3ba960e32b9343f2a1373354156e9e963ba01a7c93fdbbae139aa4007d03ae5d"
+      "size_bytes": 3574,
+      "sha256": "478dd574f125aca7378fe3f6fbcec02501fa1292953bbe46c37b2088cac6321a"
     },
     {
       "path": "media/exports/paper-trading-receipt.png",
@@ -121,8 +121,8 @@
     },
     {
       "path": "media/exports/paper-trading-receipt.svg",
-      "size_bytes": 4910,
-      "sha256": "6a942c0ab3165428f3f84737ac10264920df64ee2dfd421994881874da6a6919"
+      "size_bytes": 4847,
+      "sha256": "bbbd0eb6428f45b43660520f348ea3a76d86942eea99967ef4edb3bd730167f9"
     },
     {
       "path": "media/exports/v2v-scale.png",
@@ -131,8 +131,8 @@
     },
     {
       "path": "media/exports/v2v-scale.svg",
-      "size_bytes": 5836,
-      "sha256": "391708f5bed1419cc0c720c15754c0b561b67147397c5fda44e7effd72f73e5a"
+      "size_bytes": 5756,
+      "sha256": "911d2bbc2e6fa5a057a5b489f9290ffdf6c95a405056daea1b4f575cac5907e4"
     },
     {
       "path": "media/exports/v2v-workflow.png",
@@ -141,8 +141,8 @@
     },
     {
       "path": "media/exports/v2v-workflow.svg",
-      "size_bytes": 8022,
-      "sha256": "e2c50c260dd35614e25c023b84b3d3151695da58cc47ddb75a99a876bee95c95"
+      "size_bytes": 7916,
+      "sha256": "55efb63663d7e23c900940a90243de0080760610d8091fee4e0fb87b4f404297"
     },
     {
       "path": "media/exports/vibes-to-verified-vertical.mp4",
@@ -181,13 +181,13 @@
     },
     {
       "path": "release/APPROVAL.md",
-      "size_bytes": 3657,
-      "sha256": "a9707663b63093afaa393132deb3c4510e05749f656ea3ebc73cbbe7defa0c34"
+      "size_bytes": 3755,
+      "sha256": "ce4795f7eaafa079391f636c262f229494227b03bcfff80c5b85518c9cc3c2d0"
     },
     {
       "path": "release/reviews/review-dispositions.md",
-      "size_bytes": 4682,
-      "sha256": "acc2d1665a68e51673bed6ea9784e77f6512bfd1742073115ce37c9786ddbec3"
+      "size_bytes": 5682,
+      "sha256": "486bf4829636ea43718c6f154c3e0d8a45ce1daebb2e459f87cb27f06fb0cd7b"
     },
     {
       "path": "requirements-dev.txt",
@@ -201,18 +201,18 @@
     },
     {
       "path": "scripts/build_release_manifest.py",
-      "size_bytes": 2878,
-      "sha256": "9c9565f8c5dc32e4ab73f172ff5cf8972b9964b448570c6c30c485fb39e335b8"
+      "size_bytes": 3210,
+      "sha256": "bc6f3a9d8f91a8d72a38ab1b33e54831ab2f98d0e626001b519e19ea6dd56ea7"
     },
     {
       "path": "scripts/privacy_scan.py",
-      "size_bytes": 7169,
-      "sha256": "b000f3a5818bc66323d188daaa9333997af2036eafa5ab34ea95dac1752c476c"
+      "size_bytes": 7172,
+      "sha256": "511561658f87fbca94dec1813ffc5da409315ad05aea783505aa789adfb9e4a6"
     },
     {
       "path": "scripts/validate.py",
-      "size_bytes": 10422,
-      "sha256": "171c7987a59023447ee27a3dd4549f267e3f154c8bd113c21601312a3390c168"
+      "size_bytes": 10770,
+      "sha256": "0e6b329799b967f704f1ef24ffce50607a5d2a58af735a0712091fbecc51f043"
     },
     {
       "path": "templates/approach-registry.md",
@@ -231,8 +231,8 @@
     },
     {
       "path": "tests/test_package.py",
-      "size_bytes": 29839,
-      "sha256": "c6e62cdf39eb721099433435e1f64f0cdadc6b0a6960bbacab28cc3da3b47f77"
+      "size_bytes": 32355,
+      "sha256": "cb05524c082507e3546502aeca25aed3214bdffc274fba83d5af1ec614310519"
     },
     {
       "path": "video/README.md",

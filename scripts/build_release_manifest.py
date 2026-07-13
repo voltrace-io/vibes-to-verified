@@ -26,12 +26,20 @@ def tracked_release_files() -> list[str]:
     return files
 
 
-def sha256(path: Path) -> str:
-    digest = hashlib.sha256()
-    with path.open("rb") as handle:
-        for chunk in iter(lambda: handle.read(1024 * 1024), b""):
-            digest.update(chunk)
-    return digest.hexdigest()
+def staged_blob(relative: str) -> bytes:
+    return subprocess.check_output(["git", "show", f":{relative}"], cwd=ROOT)
+
+
+def require_staged_candidate() -> None:
+    raw = subprocess.check_output(["git", "diff", "--name-only", "-z"], cwd=ROOT)
+    unstaged = {
+        item.decode("utf-8")
+        for item in raw.split(b"\0")
+        if item and item.decode("utf-8") != MANIFEST_RELATIVE
+    }
+    if unstaged:
+        joined = ", ".join(sorted(unstaged))
+        raise SystemExit(f"stage tracked candidate changes before manifest build: {joined}")
 
 
 def video_probe(path: Path) -> dict:
@@ -52,16 +60,17 @@ def video_probe(path: Path) -> dict:
 
 
 def main() -> None:
+    require_staged_candidate()
     artifacts = []
     for relative in tracked_release_files():
-        path = ROOT / relative
-        if not path.is_file() or path.stat().st_size == 0:
+        data = staged_blob(relative)
+        if not data:
             raise SystemExit(f"missing or empty release artifact: {relative}")
         artifacts.append(
             {
                 "path": relative,
-                "size_bytes": path.stat().st_size,
-                "sha256": sha256(path),
+                "size_bytes": len(data),
+                "sha256": hashlib.sha256(data).hexdigest(),
             }
         )
 

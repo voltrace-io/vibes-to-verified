@@ -127,10 +127,9 @@ def validate_semantics(card: dict[str, Any]) -> list[str]:
         }:
             errors.append(f"{level} requires an identified artifact")
 
-        grounded = [item for item in evidence if supports_claim(item)]
-        if not grounded:
+        if not evidence or not all(supports_claim(item) for item in evidence):
             errors.append(f"{level} evidence must support the card claim_id")
-        elif not any(matches_artifact(item) for item in grounded):
+        elif not all(matches_artifact(item) for item in evidence):
             errors.append(f"{level} evidence must match scope.artifact")
 
     if level in {"V2", "V3", "V4"}:
@@ -138,10 +137,9 @@ def validate_semantics(card: dict[str, Any]) -> list[str]:
         if not tests:
             errors.append(f"{level} requires at least one test evidence item")
         else:
-            claim_tests = [item for item in tests if supports_claim(item)]
-            if not claim_tests:
+            if not all(supports_claim(item) for item in tests):
                 errors.append(f"{level} test evidence must support the card claim_id")
-            elif not any(matches_artifact(item) for item in claim_tests):
+            elif not all(matches_artifact(item) for item in tests):
                 errors.append(f"{level} test evidence must match scope.artifact")
 
     if level in {"V3", "V4"}:
@@ -155,10 +153,9 @@ def validate_semantics(card: dict[str, Any]) -> list[str]:
         if not reviews:
             errors.append(f"{level} requires at least one independent review evidence item")
         else:
-            claim_reviews = [item for item in reviews if supports_claim(item)]
-            if not claim_reviews:
+            if not all(supports_claim(item) for item in reviews):
                 errors.append(f"{level} review evidence must support the card claim_id")
-            elif not any(matches_artifact(item) for item in claim_reviews):
+            elif not all(matches_artifact(item) for item in reviews):
                 errors.append(f"{level} review evidence must match scope.artifact")
 
         dispositions = [
@@ -182,27 +179,40 @@ def validate_semantics(card: dict[str, Any]) -> list[str]:
         if not runtimes:
             errors.append("V4 requires runtime operational proof")
         else:
-            claim_runtimes = [item for item in runtimes if supports_claim(item)]
-            if not claim_runtimes:
+            if not all(supports_claim(item) for item in runtimes):
                 errors.append("V4 runtime proof must support the card claim_id")
-            elif not any(matches_artifact(item) for item in claim_runtimes):
+            elif not all(matches_artifact(item) for item in runtimes):
                 errors.append("V4 runtime proof must match scope.artifact")
 
         if not readbacks:
             errors.append("V4 requires readback operational proof")
         else:
-            claim_readbacks = [item for item in readbacks if supports_claim(item)]
-            if not claim_readbacks:
+            if not all(supports_claim(item) for item in readbacks):
                 errors.append("V4 readback proof must support the card claim_id")
-            elif not any(matches_artifact(item) for item in claim_readbacks):
+            elif not all(matches_artifact(item) for item in readbacks):
                 errors.append("V4 readback proof must match scope.artifact")
+
+    main_review_results = {
+        item.get("result")
+        for item in evidence
+        if item.get("kind") == "review"
+        and supports_claim(item)
+        and matches_artifact(item)
+    }
+    main_statuses = {item.get("status") for item in dispositions}
+    negative_review_results = main_review_results & {"refuted", "blocked"}
+    if "survived" in main_statuses and negative_review_results:
+        errors.append(
+            "survived main-claim disposition conflicts with a refuted or blocked review"
+        )
 
     if verdict == "GREEN":
         if card.get("open_blockers"):
             errors.append("GREEN requires open_blockers to be empty")
-        main_statuses = {item.get("status") for item in dispositions}
         if main_statuses & {"refuted", "blocked"}:
             errors.append("GREEN cannot accompany a refuted or blocked main claim")
+        if negative_review_results:
+            errors.append("GREEN cannot accompany a refuted or blocked review result")
         if level in {"V3", "V4"} and "survived" not in main_statuses:
             errors.append(f"GREEN / {level} requires a survived main-claim disposition")
 

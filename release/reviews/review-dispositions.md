@@ -46,6 +46,10 @@ Pre-freeze review findings have been repaired. The final manifest-bound candidat
 | “Decodable text” exceeded the implemented UTF-8-only path | Accepted | The scanner now supports UTF-8 plus BOM-marked UTF-16 and documents other binary formats as outside semantic inspection. |
 | GREEN-blocked and V3/V4 binding branches lacked direct negative tests | Accepted | Five focused regressions now cover blocked dispositions plus review and operational claim/artifact binding. |
 | Manifest does not contain the commit that contains it | Not embedded | Embedding the future commit hash would create another self-reference cycle. The external release receipt pairs the immutable commit with the separately computed manifest hash; the manifest already binds every other tracked artifact. |
+| One valid promotion record could mask another wrong-claim or stale-artifact record | Accepted | Every evidence record must now support and bind the card claim/artifact; level-specific test, review, runtime, and read-back sets use universal rather than existential checks. Mixed-record regressions cover V2, V3, and V4. |
+| A refuted review could conflict with a survived disposition | Accepted | Current-artifact negative review results now conflict with a survived disposition and independently block `GREEN`; direct regression coverage is included. |
+| Working-tree line endings could differ from committed SVG blobs | Accepted | Manifest generation now requires staged candidate files and hashes Git index blobs. The contract test compares every entry to its staged commit blob. |
+| `files_scanned` telemetry implied unsupported binaries were semantically inspected | Accepted | CLI telemetry now reports `files_enumerated`; documentation separately names supported text and media inspection. |
 
 ## Remaining Gate
 
