@@ -186,6 +186,18 @@ class PackageContractTests(unittest.TestCase):
             validate.validate_semantics(card),
         )
 
+    def test_green_rejects_blocked_main_claim(self):
+        card = copy.deepcopy(self.template)
+        card["verdict"] = "GREEN"
+        card["v2v_level"] = "V3"
+        card["claim_dispositions"] = [
+            {"claim_id": "C-01", "status": "blocked", "evidence": "reviews/final.json"}
+        ]
+        self.assertIn(
+            "GREEN cannot accompany a refuted or blocked main claim",
+            validate.validate_semantics(card),
+        )
+
     def test_schema_rejects_v2_without_test_evidence(self):
         card = copy.deepcopy(self.template)
         card["v2v_level"] = "V2"
@@ -272,6 +284,29 @@ class PackageContractTests(unittest.TestCase):
         ]
         return card
 
+    def _valid_operational_proof(self):
+        return [
+            {
+                "kind": "runtime",
+                "artifact": "runtime/run-001.log",
+                "subject_artifact": "sha256:abc123",
+                "natural_path": True,
+                "repetition_count": 3,
+                "monitoring_observed": True,
+                "recovery_visibility": "Recovery state was observable.",
+                "observed": "Natural path completed.",
+                "supports": ["C-01"],
+            },
+            {
+                "kind": "readback",
+                "artifact": "runtime/readback-001.json",
+                "subject_artifact": "sha256:abc123",
+                "readback_source": "External state read-back.",
+                "observed": "Expected external state was observed.",
+                "supports": ["C-01"],
+            },
+        ]
+
     def test_v3_rejects_disclosed_nonindependent_review_for_promotion(self):
         card = self._v4_base_card()
         card["v2v_level"] = "V3"
@@ -280,6 +315,44 @@ class PackageContractTests(unittest.TestCase):
         card["evidence"][1]["independence"] = "sequential_blinded_pass"
         errors = validate.validate_semantics(card)
         self.assertIn("V3 requires at least one independent review evidence item", errors)
+
+    def test_v3_review_must_support_main_claim(self):
+        card = self._v4_base_card()
+        card["v2v_level"] = "V3"
+        card["verdict"] = "YELLOW"
+        card["evidence"][1]["supports"] = ["C-99"]
+        self.assertIn(
+            "V3 review evidence must support the card claim_id",
+            validate.validate_semantics(card),
+        )
+
+    def test_v3_review_must_match_scope_artifact(self):
+        card = self._v4_base_card()
+        card["v2v_level"] = "V3"
+        card["verdict"] = "YELLOW"
+        card["evidence"][1]["subject_artifact"] = "sha256:stale"
+        self.assertIn(
+            "V3 review evidence must match scope.artifact",
+            validate.validate_semantics(card),
+        )
+
+    def test_v4_operational_proof_must_support_main_claim(self):
+        card = self._v4_base_card()
+        card["operational_proof"] = self._valid_operational_proof()
+        for item in card["operational_proof"]:
+            item["supports"] = ["C-99"]
+        errors = validate.validate_semantics(card)
+        self.assertIn("V4 runtime proof must support the card claim_id", errors)
+        self.assertIn("V4 readback proof must support the card claim_id", errors)
+
+    def test_v4_operational_proof_must_match_scope_artifact(self):
+        card = self._v4_base_card()
+        card["operational_proof"] = self._valid_operational_proof()
+        for item in card["operational_proof"]:
+            item["subject_artifact"] = "sha256:stale"
+        errors = validate.validate_semantics(card)
+        self.assertIn("V4 runtime proof must match scope.artifact", errors)
+        self.assertIn("V4 readback proof must match scope.artifact", errors)
 
     def test_v4_requires_operational_proof(self):
         card = self._v4_base_card()
@@ -546,7 +619,7 @@ class PackageContractTests(unittest.TestCase):
                 f"user={leaked_user_path}\nwork={leaked_work_path}\n",
                 encoding="utf-8",
             )
-            findings = privacy.scan(root)
+            findings = privacy.scan(root, files=[root / "leak.md"])
         self.assertTrue(any("private_windows_user_path" in finding for finding in findings))
         self.assertTrue(any("private_ai_work_path" in finding for finding in findings))
 
@@ -556,8 +629,36 @@ class PackageContractTests(unittest.TestCase):
             separator = "\\"
             leaked_path = "C:" + separator + "Users" + separator + "Alice" + separator + "notes.txt"
             (root / "requirements-dev.txt").write_text(leaked_path, encoding="utf-8")
-            findings = privacy.scan(root)
+            findings = privacy.scan(root, files=[root / "requirements-dev.txt"])
         self.assertTrue(any("private_windows_user_path" in finding for finding in findings))
+
+    def test_privacy_scan_reads_bom_marked_utf16_text(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            separator = "\\"
+            leaked_path = "C:" + separator + "Users" + separator + "Alice" + separator + "notes.txt"
+            path = root / "utf16.txt"
+            path.write_text(leaked_path, encoding="utf-16")
+            findings = privacy.scan(root, files=[path])
+        self.assertTrue(any("private_windows_user_path" in finding for finding in findings))
+
+    def test_privacy_scan_fails_closed_without_git_boundary(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            (root / "untracked.txt").write_text("public-looking text", encoding="utf-8")
+            with self.assertRaises(privacy.TrackedFileEnumerationError):
+                privacy.scan(root)
+
+    def test_privacy_scan_fails_closed_on_missing_tracked_file(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            path = root / "tracked.txt"
+            path.write_text("temporary text", encoding="utf-8")
+            subprocess.run(["git", "init", "-q"], cwd=root, check=True)
+            subprocess.run(["git", "add", "tracked.txt"], cwd=root, check=True)
+            path.unlink()
+            with self.assertRaises(privacy.TrackedFileEnumerationError):
+                privacy.scan(root)
 
     def test_privacy_scan_reads_png_text_metadata(self):
         with tempfile.TemporaryDirectory() as tmp:
@@ -567,7 +668,7 @@ class PackageContractTests(unittest.TestCase):
             metadata = PngImagePlugin.PngInfo()
             metadata.add_text("Comment", leaked_path)
             Image.new("RGB", (4, 4), "black").save(root / "leak.png", pnginfo=metadata)
-            findings = privacy.scan(root)
+            findings = privacy.scan(root, files=[root / "leak.png"])
         self.assertTrue(any("private_windows_user_path" in finding for finding in findings))
 
     def test_tracked_source_png_has_no_cabx_metadata_chunk(self):

@@ -21,7 +21,7 @@ Pre-freeze review findings have been repaired. The final manifest-bound candidat
 | Finding | Disposition | Repair |
 |---|---|---|
 | Manifest covered only selected files | Accepted | Manifest generation now hashes every tracked candidate file except the self-referential manifest. |
-| Scanner skipped text files and binary metadata | Accepted | Scanner now enumerates tracked files, scans decodable text, inspects PNG metadata/chunks, and reads video tags through `ffprobe`. |
+| Scanner skipped text files and binary metadata | Accepted | Scanner now requires the tracked boundary, scans UTF-8 and BOM-marked UTF-16 text, inspects PNG metadata/chunks, and reads video tags through `ffprobe`. |
 | Scanner source embedded a private workspace literal | Accepted | The signature is assembled dynamically and remains covered by a leak fixture. |
 | GPT Image source contained a C2PA/JUMBF `caBX` chunk | Accepted | The tracked source is a pixel-identical metadata-sanitized export; the public provenance note records the treatment. |
 | Public files embedded an unverified repository destination | Accepted | Publication destinations are placeholders and the social card is URL-free until public read-back. |
@@ -34,9 +34,18 @@ Pre-freeze review findings have been repaired. The final manifest-bound candidat
 |---|---|---|
 | “64-agent proof prompt” exceeded the source | Accepted | Copy now says the proof-search prompt allowed up to 64 concurrent agents. |
 | Exact private case results lacked public primary receipts | Accepted | Article links to a sanitized case, labels results as internally reported, and keeps the public private-V4 claim at V0. |
-| Broad multi-agent and engineering generalizations were unsupported | Accepted | Language was narrowed to common or many patterns. |
+| Broad multi-agent and engineering generalizations were unsupported | Accepted | Prevalence framing was removed in favor of claim-specific or conditional language. |
 | Categorical benefits exceeded evidence | Accepted | Benefits now use calibrated “can” language. |
 | Package could be read as proven | Accepted | Launch metadata says `tested_not_proven`. |
+
+## Exact-Candidate Follow-up
+
+| Finding | Disposition | Repair or rationale |
+|---|---|---|
+| Git enumeration failure fell back to the surrounding workspace | Accepted | Default scanning now raises a tracked-boundary error and the CLI exits nonzero; no workspace fallback remains. |
+| “Decodable text” exceeded the implemented UTF-8-only path | Accepted | The scanner now supports UTF-8 plus BOM-marked UTF-16 and documents other binary formats as outside semantic inspection. |
+| GREEN-blocked and V3/V4 binding branches lacked direct negative tests | Accepted | Five focused regressions now cover blocked dispositions plus review and operational claim/artifact binding. |
+| Manifest does not contain the commit that contains it | Not embedded | Embedding the future commit hash would create another self-reference cycle. The external release receipt pairs the immutable commit with the separately computed manifest hash; the manifest already binds every other tracked artifact. |
 
 ## Remaining Gate
 

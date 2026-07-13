@@ -8,12 +8,12 @@ import re
 import struct
 import subprocess
 import sys
+from collections.abc import Iterable
 from pathlib import Path
 
 from PIL import Image
 
 ROOT = Path(__file__).resolve().parents[1]
-SKIP_DIRS = {".git", "dist", "__pycache__"}
 BACKSLASH = chr(92)
 WINDOWS_USERS_PREFIX = "C:" + BACKSLASH + "Users" + BACKSLASH
 WINDOWS_USERS_SLASH_PREFIX = "C:" + "/" + "Users" + "/"
@@ -49,28 +49,35 @@ ALLOWED_LITERAL_PATHS = {
 PNG_METADATA_CHUNKS = {b"caBX", b"eXIf"}
 
 
-def _git_tracked_files(root: Path) -> list[Path] | None:
+class TrackedFileEnumerationError(RuntimeError):
+    """Raised when the tracked release boundary cannot be established."""
+
+
+def _git_tracked_files(root: Path) -> list[Path]:
     try:
         output = subprocess.check_output(
             ["git", "ls-files", "-z"], cwd=root, stderr=subprocess.DEVNULL
         )
-    except (OSError, subprocess.CalledProcessError):
-        return None
-    return [root / raw.decode("utf-8") for raw in output.split(b"\0") if raw]
+        files = [root / raw.decode("utf-8") for raw in output.split(b"\0") if raw]
+    except (OSError, subprocess.CalledProcessError, UnicodeDecodeError) as exc:
+        raise TrackedFileEnumerationError(
+            "git ls-files failed; tracked release tree unavailable"
+        ) from exc
+    if not files:
+        raise TrackedFileEnumerationError("tracked release tree is empty")
+    return files
 
 
 def iter_public_files(root: Path):
-    tracked = _git_tracked_files(root)
-    candidates = tracked if tracked is not None else list(root.rglob("*"))
-    for path in candidates:
-        if not path.is_file():
-            continue
+    for path in _git_tracked_files(root):
         try:
             relative = path.relative_to(root)
         except ValueError:
-            continue
-        if any(part in SKIP_DIRS for part in relative.parts):
-            continue
+            raise TrackedFileEnumerationError("tracked path escaped the release root")
+        if not path.is_file():
+            raise TrackedFileEnumerationError(
+                f"tracked release file is missing or not regular: {relative.as_posix()}"
+            )
         yield path
 
 
@@ -84,6 +91,20 @@ def _scan_text(relative: Path, text: str) -> list[str]:
             line = normalized.count("\n", 0, match.start()) + 1
             findings.append(f"{relative.as_posix()}:{line}: {name}")
     return findings
+
+
+def _decode_supported_text(data: bytes) -> str | None:
+    if data.startswith((b"\xff\xfe", b"\xfe\xff")):
+        try:
+            return data.decode("utf-16")
+        except UnicodeDecodeError:
+            return None
+    if b"\0" in data:
+        return None
+    try:
+        return data.decode("utf-8")
+    except UnicodeDecodeError:
+        return None
 
 
 def _png_chunk_types(data: bytes) -> list[bytes]:
@@ -146,9 +167,10 @@ def _scan_video(root: Path, path: Path) -> list[str]:
     return _scan_text(relative, output)
 
 
-def scan(root: Path) -> list[str]:
+def scan(root: Path, *, files: Iterable[Path] | None = None) -> list[str]:
     findings: list[str] = []
-    for path in iter_public_files(root):
+    candidates = iter_public_files(root) if files is None else files
+    for path in candidates:
         suffix = path.suffix.lower()
         if suffix == ".png":
             findings.extend(_scan_png(root, path))
@@ -157,12 +179,8 @@ def scan(root: Path) -> list[str]:
             findings.extend(_scan_video(root, path))
             continue
 
-        data = path.read_bytes()
-        if b"\0" in data:
-            continue
-        try:
-            text = data.decode("utf-8")
-        except UnicodeDecodeError:
+        text = _decode_supported_text(path.read_bytes())
+        if text is None:
             continue
         findings.extend(_scan_text(path.relative_to(root), text))
     return findings
@@ -173,15 +191,20 @@ def main() -> int:
     parser.add_argument("--root", type=Path, default=ROOT)
     args = parser.parse_args()
     root = args.root.resolve()
-    findings = scan(root)
+    try:
+        files = list(iter_public_files(root))
+    except TrackedFileEnumerationError as exc:
+        print("PRIVACY SCAN FAILED")
+        print(f"- tracked_file_enumeration_failed: {exc}")
+        return 1
+    findings = scan(root, files=files)
     if findings:
         print("PRIVACY SCAN FAILED")
         for finding in findings:
             print(f"- {finding}")
         return 1
-    files = sum(1 for _ in iter_public_files(root))
     print("PRIVACY SCAN PASSED")
-    print(f"files_scanned={files}")
+    print(f"files_scanned={len(files)}")
     return 0
 
 

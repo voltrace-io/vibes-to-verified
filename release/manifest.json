@@ -41,8 +41,8 @@
     },
     {
       "path": "SECURITY.md",
-      "size_bytes": 1790,
-      "sha256": "13c7e0f0604a70af32d0415da8a83a34dc5ab77126388deb3629935a1e0cad3c"
+      "size_bytes": 1932,
+      "sha256": "4a3c5d144b36e1ffd482401d668b2809455a6b9f5fb1a472b7ceed304739b47d"
     },
     {
       "path": "SKILL.md",
@@ -182,12 +182,12 @@
     {
       "path": "release/APPROVAL.md",
       "size_bytes": 3657,
-      "sha256": "804a6692dbea492a569f2e404bca9d6c0a7daa641827d9f653ab75a53ca53e71"
+      "sha256": "a9707663b63093afaa393132deb3c4510e05749f656ea3ebc73cbbe7defa0c34"
     },
     {
       "path": "release/reviews/review-dispositions.md",
-      "size_bytes": 3639,
-      "sha256": "52660e5bac7cfd5da4788c40940d50d76c0b4bed1e8edf0c87cac14857c84e70"
+      "size_bytes": 4682,
+      "sha256": "acc2d1665a68e51673bed6ea9784e77f6512bfd1742073115ce37c9786ddbec3"
     },
     {
       "path": "requirements-dev.txt",
@@ -206,8 +206,8 @@
     },
     {
       "path": "scripts/privacy_scan.py",
-      "size_bytes": 6243,
-      "sha256": "7f236fa64c685ff1f6760176b04e0ba9b546b4ca017a8dadee765dd6678c43e5"
+      "size_bytes": 7169,
+      "sha256": "b000f3a5818bc66323d188daaa9333997af2036eafa5ab34ea95dac1752c476c"
     },
     {
       "path": "scripts/validate.py",
@@ -231,8 +231,8 @@
     },
     {
       "path": "tests/test_package.py",
-      "size_bytes": 25351,
-      "sha256": "1957bbf9a2bda8dd755a49b681262c1f8ba59f218522404e7410591cbedb376f"
+      "size_bytes": 29839,
+      "sha256": "c6e62cdf39eb721099433435e1f64f0cdadc6b0a6960bbacab28cc3da3b47f77"
     },
     {
       "path": "video/README.md",

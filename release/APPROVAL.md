@@ -22,7 +22,7 @@ All deterministic checks pass. Prior independent-review findings are repaired an
 | Gate | Result |
 |---|---|
 | Required artifact validator | PASS — 37 required files |
-| Contract tests | PASS — 40/40 against the manifest-bound candidate |
+| Contract tests | PASS — 48/48 against the manifest-bound candidate |
 | Privacy scan | PASS — 50 tracked files, including text and supported media metadata |
 | Ruff static analysis | PASS |
 | Python compilation | PASS |
@@ -69,7 +69,7 @@ The package includes:
 ## Approval Sequence
 
 1. Rebuild `release/manifest.json` after this card is final.
-2. Run the complete verification suite and require 40/40 tests.
+2. Run the complete verification suite and require 48/48 tests.
 3. Commit the immutable candidate locally.
 4. Run fresh independent contract, privacy, and editorial reviews against that exact commit.
 5. Repair any blocker, rebuild the manifest, and repeat if required.

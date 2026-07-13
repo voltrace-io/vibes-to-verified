@@ -28,7 +28,7 @@ A useful report includes:
 
 ## Automated Disclosure Scan
 
-`scripts/privacy_scan.py` enumerates the tracked release tree, scans decodable text for known secret and private-path patterns, inspects PNG text/EXIF/C2PA-related metadata, and inspects video tags through `ffprobe`. It fails closed when those inspections cannot run.
+`scripts/privacy_scan.py` requires a Git-tracked release boundary, scans UTF-8 and BOM-marked UTF-16 text for known secret and private-path patterns, inspects PNG text/EXIF/C2PA-related metadata, and inspects video tags through `ffprobe`. It fails closed when tracked-file enumeration or supported media inspection cannot run. Other NUL-containing or undecodable binary formats are not semantically inspected.
 
 This automation is not a semantic disclosure proof. Strategy details, proprietary thresholds, operational schedules, account context, and exploitable procedures still require a human review against the rules above.
 
