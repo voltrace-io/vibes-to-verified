@@ -56,13 +56,13 @@
     },
     {
       "path": "article/article.md",
-      "size_bytes": 10890,
-      "sha256": "f04ee7b74a6629fee9d99a0149de4c7605f012b2e768a232c9ebcd903b0c598a"
+      "size_bytes": 10858,
+      "sha256": "e631556e5994379bb16edc67a2a1a33d3763f87a89cae60c087302c4d83ac895"
     },
     {
       "path": "article/launch-copy.md",
       "size_bytes": 2725,
-      "sha256": "0f226cbe2c322241b90f61294c372980309940fcea9b788cadb65c1656157501"
+      "sha256": "b596faba73b7a203be093059bf6c37bac7a7f1e74eaad1a93ab0ca4de9554cb5"
     },
     {
       "path": "article/media-map.md",
@@ -181,8 +181,8 @@
     },
     {
       "path": "release/APPROVAL.md",
-      "size_bytes": 3531,
-      "sha256": "bebfcb3b2f20291615e33cecac2661194d3951e71be8205126fbeffe0979b3b0"
+      "size_bytes": 3657,
+      "sha256": "804a6692dbea492a569f2e404bca9d6c0a7daa641827d9f653ab75a53ca53e71"
     },
     {
       "path": "release/reviews/review-dispositions.md",

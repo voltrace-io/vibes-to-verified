@@ -43,7 +43,7 @@ it required:
 
 that is a much stronger design than “ask five agents and let one summarize them.”
 
-a common multi-agent pattern parallelizes production. this one tried to parallelize disagreement.
+parallelizing production is not the same as parallelizing disagreement. this prompt tried to do both.
 
 ## agent count is not independence
 
@@ -138,9 +138,7 @@ V1 establishes that the reasoning touches reality. it does not establish that th
 
 the claim survives a controlled, repeatable test against explicit acceptance and rejection criteria.
 
-this is where many responsible engineering workflows stop.
-
-that is useful, but passing tests still cannot tell you whether the test author missed the dangerous boundary.
+controlled tests are useful, but passing them still cannot tell you whether the test author missed the dangerous boundary.
 
 ### V3 — adversarial
 
@@ -279,11 +277,11 @@ just a reusable workflow that can be installed, challenged, forked, and improved
 
 ## keep the speed. add the proof.
 
-vibe coding expanded who can build software.
+vibe coding can lower the barrier to building software.
 
 that is worth protecting.
 
-but accessibility will not earn durable trust if generated systems repeatedly ship with authority their evidence never earned.
+but lower barriers will not earn durable trust if generated systems repeatedly ship with authority their evidence never earned.
 
 the answer is not to return building to a smaller priesthood.
 

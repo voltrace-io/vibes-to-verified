@@ -76,8 +76,8 @@ The package includes:
 6. Present the exact Article, launch post, replies, media, hashes, and commit.
 7. Request GitHub publication approval.
 8. Read back the public repository and CI result.
-9. Request X Article approval.
+9. Bind the verified repository and case-study URLs into the Article, present the exact Article candidate, and request X Article approval.
 10. Read back the Article URL.
-11. Replace publication placeholders, show the final launch bundle, and request posting approval.
+11. Bind the verified Article URL into the launch copy, show the final launch bundle, and request posting approval.
 
 Failure or ambiguity at any stage keeps the next gate closed.

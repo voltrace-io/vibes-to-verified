@@ -1,6 +1,6 @@
 # Vibes to Verified Launch Copy
 
-The Article and repository publication URLs remain placeholders until both destinations are read back successfully. Public source URLs are verified references.
+Before Article approval, bind the verified repository and case-study URLs into the Article. After Article read-back, bind `{{ARTICLE_URL}}` into the launch copy. Public source URLs are verified references.
 
 ## Recommended Launch Post
 
@@ -22,7 +22,7 @@ keep the speed. add the proof.
 
 **Evidence tier:** tested, not proven
 
-**Why now:** vibe coding is culturally visible, but much of the discussion stops at criticism instead of giving builders a usable path to proof.
+**Why now:** the opportunity is to move past criticism and give builders a usable path to proof.
 
 ## First Reply — Repository
 
@@ -62,7 +62,7 @@ Attach the deterministic V2V Scale graphic.
 Use only if the Manim render is strong enough to communicate without sound.
 
 ```text
-64 agents can still share one blind spot.
+more agents can still share one blind spot.
 
 agreement isn’t verification.
 
