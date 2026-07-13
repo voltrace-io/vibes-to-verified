@@ -1,0 +1,47 @@
+name: validate
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+          cache-dependency-path: requirements-dev.txt
+
+      - name: Install validation dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes ffmpeg
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements-dev.txt
+
+      - name: Validate package contract
+        run: python scripts/validate.py
+
+      - name: Run contract tests
+        run: python -m unittest discover -s tests -v
+
+      - name: Scan public files for privacy leaks
+        run: python scripts/privacy_scan.py
+
+      - name: Compile Python sources
+        run: python -m compileall -q scripts media video tests
+
+      - name: Run Ruff
+        run: ruff check scripts media video tests

@@ -1,0 +1,299 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:voltrace:vibes-to-verified:evidence-card:0.1.0",
+  "title": "Vibes to Verified Evidence Card",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "claim_id",
+    "claim",
+    "verdict",
+    "v2v_level",
+    "scope",
+    "acceptance_criteria",
+    "rejection_criteria",
+    "evidence",
+    "claim_dispositions",
+    "open_blockers",
+    "operational_proof",
+    "limitations",
+    "disclosure_boundary",
+    "next_action"
+  ],
+  "properties": {
+    "claim_id": {
+      "type": "string",
+      "pattern": "^C-[0-9]{2,}$"
+    },
+    "claim": {
+      "type": "string",
+      "minLength": 12
+    },
+    "verdict": {
+      "enum": ["GREEN", "YELLOW", "RED", "BLOCKED", "REJECTED"]
+    },
+    "v2v_level": {
+      "enum": ["V0", "V1", "V2", "V3", "V4"]
+    },
+    "scope": {
+      "$ref": "#/$defs/scope"
+    },
+    "acceptance_criteria": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"type": "string", "minLength": 3}
+    },
+    "rejection_criteria": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"type": "string", "minLength": 3}
+    },
+    "evidence": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/evidence"}
+    },
+    "claim_dispositions": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/disposition"}
+    },
+    "open_blockers": {
+      "type": "array",
+      "items": {"type": "string", "minLength": 3}
+    },
+    "operational_proof": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/operationalProof"}
+    },
+    "limitations": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"type": "string", "minLength": 3}
+    },
+    "disclosure_boundary": {
+      "$ref": "#/$defs/disclosureBoundary"
+    },
+    "next_action": {
+      "type": "string",
+      "minLength": 3
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {"v2v_level": {"enum": ["V1", "V2", "V3", "V4"]}},
+        "required": ["v2v_level"]
+      },
+      "then": {
+        "properties": {"evidence": {"minItems": 1}}
+      }
+    },
+    {
+      "if": {
+        "properties": {"v2v_level": {"enum": ["V2", "V3", "V4"]}},
+        "required": ["v2v_level"]
+      },
+      "then": {
+        "properties": {
+          "evidence": {
+            "contains": {
+              "type": "object",
+              "properties": {"kind": {"const": "test"}},
+              "required": ["kind"]
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {"v2v_level": {"enum": ["V3", "V4"]}},
+        "required": ["v2v_level"]
+      },
+      "then": {
+        "properties": {
+          "evidence": {
+            "contains": {
+              "type": "object",
+              "properties": {"kind": {"const": "review"}},
+              "required": ["kind"]
+            }
+          },
+          "claim_dispositions": {"minItems": 1}
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {"v2v_level": {"const": "V4"}},
+        "required": ["v2v_level"]
+      },
+      "then": {
+        "properties": {
+          "operational_proof": {
+            "minItems": 2,
+            "allOf": [
+              {
+                "contains": {
+                  "type": "object",
+                  "properties": {"kind": {"const": "runtime"}},
+                  "required": ["kind"]
+                }
+              },
+              {
+                "contains": {
+                  "type": "object",
+                  "properties": {"kind": {"const": "readback"}},
+                  "required": ["kind"]
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {"verdict": {"const": "GREEN"}},
+        "required": ["verdict"]
+      },
+      "then": {
+        "properties": {"open_blockers": {"maxItems": 0}}
+      }
+    }
+  ],
+  "$defs": {
+    "scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["environment", "artifact", "observed_at"],
+      "properties": {
+        "environment": {"type": "string", "minLength": 3},
+        "artifact": {"type": "string", "minLength": 3},
+        "observed_at": {"type": "string", "format": "date-time"}
+      }
+    },
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "artifact", "subject_artifact", "observed", "supports"],
+      "properties": {
+        "kind": {"enum": ["source", "artifact", "test", "review"]},
+        "artifact": {"type": "string", "minLength": 3},
+        "subject_artifact": {"type": "string", "minLength": 3},
+        "observed": {"type": "string", "minLength": 3},
+        "supports": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"type": "string", "pattern": "^C-[0-9]{2,}$"}
+        },
+        "procedure": {"type": "string", "minLength": 3},
+        "expected": {"type": "string", "minLength": 3},
+        "repetitions": {"type": "integer", "minimum": 1},
+        "reviewer": {"type": "string", "minLength": 3},
+        "independence": {
+          "enum": [
+            "independent_agent",
+            "independent_human",
+            "sequential_blinded_pass",
+            "disclosed_nonindependent"
+          ]
+        },
+        "challenge": {"type": "string", "minLength": 3},
+        "result": {"enum": ["survived", "refuted", "blocked"]}
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {"kind": {"const": "test"}},
+            "required": ["kind"]
+          },
+          "then": {
+            "required": ["procedure", "expected", "repetitions"]
+          }
+        },
+        {
+          "if": {
+            "properties": {"kind": {"const": "review"}},
+            "required": ["kind"]
+          },
+          "then": {
+            "required": ["reviewer", "independence", "challenge", "result"]
+          }
+        }
+      ]
+    },
+    "operationalProof": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "artifact", "subject_artifact", "observed", "supports"],
+      "properties": {
+        "kind": {"enum": ["runtime", "readback"]},
+        "artifact": {"type": "string", "minLength": 3},
+        "subject_artifact": {"type": "string", "minLength": 3},
+        "observed": {"type": "string", "minLength": 3},
+        "supports": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"type": "string", "pattern": "^C-[0-9]{2,}$"}
+        },
+        "natural_path": {"const": true},
+        "repetition_count": {"type": "integer", "minimum": 1},
+        "monitoring_observed": {"const": true},
+        "recovery_visibility": {"type": "string", "minLength": 3},
+        "readback_source": {"type": "string", "minLength": 3}
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {"kind": {"const": "runtime"}},
+            "required": ["kind"]
+          },
+          "then": {
+            "required": [
+              "natural_path",
+              "repetition_count",
+              "monitoring_observed",
+              "recovery_visibility"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {"kind": {"const": "readback"}},
+            "required": ["kind"]
+          },
+          "then": {
+            "required": ["readback_source"]
+          }
+        }
+      ]
+    },
+    "disposition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["claim_id", "status", "evidence"],
+      "properties": {
+        "claim_id": {"type": "string", "pattern": "^C-[0-9]{2,}$"},
+        "status": {"enum": ["survived", "refuted", "repaired", "blocked"]},
+        "evidence": {"type": "string", "minLength": 3}
+      }
+    },
+    "disclosureBoundary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["public", "private"],
+      "properties": {
+        "public": {
+          "type": "array",
+          "items": {"type": "string", "minLength": 3}
+        },
+        "private": {
+          "type": "array",
+          "items": {"type": "string", "minLength": 3}
+        }
+      }
+    }
+  }
+}

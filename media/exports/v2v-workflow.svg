@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+
+    <defs>
+      <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+        <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1A2329" stroke-width="1" opacity="0.45"/>
+      </pattern>
+      <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+        <feGaussianBlur stdDeviation="7" result="blur"/>
+        <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+      </filter>
+      <linearGradient id="accentLine" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0" stop-color="#58636B"/>
+        <stop offset="0.35" stop-color="#55D8FF"/>
+        <stop offset="1" stop-color="#42F59E"/>
+      </linearGradient>
+      <style>
+        .sans { font-family: 'Segoe UI', Arial, sans-serif; }
+        .mono { font-family: 'Cascadia Mono', 'Consolas', monospace; }
+        .caps { letter-spacing: 3px; }
+      </style>
+    </defs>
+
+    <rect width="1600" height="900" fill="#090B0D"/>
+    <rect width="1600" height="900" fill="url(#grid)"/>
+
+      <text x="80" y="80" class="mono caps" font-size="19" fill="#42F59E">VIBES TO VERIFIED / WORKFLOW</text>
+      <text x="80" y="165" class="sans" font-size="64" font-weight="750" fill="#F2F0E9">independence before consensus.</text>
+      <text x="80" y="215" class="sans" font-size="25" fill="#87939C">different approaches propose. refuters attack. artifacts decide.</text>
+
+      <rect x="70" y="392" width="145" height="116" rx="18" fill="#151C21" stroke="#F2F0E9" stroke-width="2"/>
+      <text x="142" y="433" text-anchor="middle" class="mono" font-size="17" fill="#87939C">EXACT</text>
+      <text x="142" y="462" text-anchor="middle" class="mono" font-size="22" font-weight="700" fill="#F2F0E9">CLAIM</text>
+      <text x="142" y="488" text-anchor="middle" class="sans" font-size="14" fill="#87939C">falsifiable</text>
+      <path d="M 215 450 L 230 450" stroke="#42F59E" stroke-width="3"/>
+      <path d="M 230 292 L 230 660" stroke="#42F59E" stroke-width="2" opacity="0.8"/>
+      <path d="M 230 292 L 245 292 M 230 384 L 245 384 M 230 476 L 245 476 M 230 568 L 245 568 M 230 660 L 245 660" stroke="#42F59E" stroke-width="3"/>
+      <path d="M 239 286 L 247 292 L 239 298 M 239 378 L 247 384 L 239 390 M 239 470 L 247 476 L 239 482 M 239 562 L 247 568 L 239 574 M 239 654 L 247 660 L 239 666" fill="none" stroke="#42F59E" stroke-width="2"/>
+
+
+          <rect x="250" y="260" width="230" height="64" rx="14" fill="#11161A" stroke="#55D8FF" stroke-width="2"/>
+          <circle cx="279" cy="292" r="8" fill="#55D8FF"/>
+          <text x="303" y="289" class="mono" font-size="18" font-weight="700" fill="#F2F0E9">BUILDER</text>
+          <text x="303" y="310" class="sans" font-size="15" fill="#87939C">construct</text>
+          <path d="M 480 292 C 560 292, 550 450, 635 450" fill="none" stroke="#87939C" stroke-width="2" opacity="0.6"/>
+
+          <rect x="250" y="352" width="230" height="64" rx="14" fill="#11161A" stroke="#55D8FF" stroke-width="2"/>
+          <circle cx="279" cy="384" r="8" fill="#55D8FF"/>
+          <text x="303" y="381" class="mono" font-size="18" font-weight="700" fill="#F2F0E9">INVARIANT</text>
+          <text x="303" y="402" class="sans" font-size="15" fill="#87939C">formalize</text>
+          <path d="M 480 384 C 560 384, 550 450, 635 450" fill="none" stroke="#87939C" stroke-width="2" opacity="0.6"/>
+
+          <rect x="250" y="444" width="230" height="64" rx="14" fill="#11161A" stroke="#FF5C6C" stroke-width="2"/>
+          <circle cx="279" cy="476" r="8" fill="#FF5C6C"/>
+          <text x="303" y="473" class="mono" font-size="18" font-weight="700" fill="#F2F0E9">ADVERSARY</text>
+          <text x="303" y="494" class="sans" font-size="15" fill="#87939C">break</text>
+          <path d="M 480 476 C 560 476, 550 450, 635 450" fill="none" stroke="#87939C" stroke-width="2" opacity="0.6"/>
+
+          <rect x="250" y="536" width="230" height="64" rx="14" fill="#11161A" stroke="#55D8FF" stroke-width="2"/>
+          <circle cx="279" cy="568" r="8" fill="#55D8FF"/>
+          <text x="303" y="565" class="mono" font-size="18" font-weight="700" fill="#F2F0E9">OPERATOR</text>
+          <text x="303" y="586" class="sans" font-size="15" fill="#87939C">run</text>
+          <path d="M 480 568 C 560 568, 550 450, 635 450" fill="none" stroke="#87939C" stroke-width="2" opacity="0.6"/>
+
+          <rect x="250" y="628" width="230" height="64" rx="14" fill="#11161A" stroke="#55D8FF" stroke-width="2"/>
+          <circle cx="279" cy="660" r="8" fill="#55D8FF"/>
+          <text x="303" y="657" class="mono" font-size="18" font-weight="700" fill="#F2F0E9">EVIDENCE</text>
+          <text x="303" y="678" class="sans" font-size="15" fill="#87939C">audit</text>
+          <path d="M 480 660 C 560 660, 550 450, 635 450" fill="none" stroke="#87939C" stroke-width="2" opacity="0.6"/>
+
+
+      <rect x="635" y="345" width="230" height="210" rx="22" fill="#151C21" stroke="#55D8FF" stroke-width="2"/>
+      <text x="750" y="402" text-anchor="middle" class="mono" font-size="18" fill="#55D8FF">APPROACH</text>
+      <text x="750" y="432" text-anchor="middle" class="mono" font-size="21" font-weight="700" fill="#F2F0E9">REGISTRY</text>
+      <line x1="675" y1="460" x2="825" y2="460" stroke="#1A2329" stroke-width="2"/>
+      <text x="675" y="495" class="sans" font-size="16" fill="#87939C">active</text>
+      <text x="760" y="495" class="sans" font-size="16" fill="#FFD166">blocked</text>
+      <text x="675" y="525" class="sans" font-size="16" fill="#FF5C6C">refuted</text>
+      <text x="760" y="525" class="sans" font-size="16" fill="#42F59E">survived</text>
+
+      <path d="M 865 450 L 930 450" stroke="#42F59E" stroke-width="3"/>
+      <path d="M 922 442 L 932 450 L 922 458" fill="none" stroke="#42F59E" stroke-width="3"/>
+
+      <rect x="935" y="330" width="230" height="240" rx="22" fill="#151C21" stroke="#FF5C6C" stroke-width="2"/>
+      <text x="1050" y="390" text-anchor="middle" class="mono" font-size="18" fill="#FF5C6C">INDEPENDENT</text>
+      <text x="1050" y="422" text-anchor="middle" class="mono" font-size="22" font-weight="700" fill="#F2F0E9">REFUTATION</text>
+      <line x1="977" y1="451" x2="1123" y2="451" stroke="#1A2329" stroke-width="2"/>
+      <text x="1050" y="490" text-anchor="middle" class="sans" font-size="17" fill="#87939C">atomic claims</text>
+      <text x="1050" y="520" text-anchor="middle" class="sans" font-size="17" fill="#87939C">counter-evidence</text>
+      <text x="1050" y="550" text-anchor="middle" class="sans" font-size="17" fill="#87939C">reproduction</text>
+
+      <path d="M 1165 450 L 1230 450" stroke="#42F59E" stroke-width="3"/>
+      <path d="M 1222 442 L 1232 450 L 1222 458" fill="none" stroke="#42F59E" stroke-width="3"/>
+
+      <rect x="1235" y="345" width="285" height="210" rx="22" fill="#151C21" stroke="#42F59E" stroke-width="2" filter="url(#glow)"/>
+      <text x="1377" y="402" text-anchor="middle" class="mono" font-size="17" fill="#42F59E">FINAL</text>
+      <text x="1377" y="435" text-anchor="middle" class="mono" font-size="22" font-weight="700" fill="#F2F0E9">EVIDENCE CARD</text>
+      <line x1="1280" y1="462" x2="1475" y2="462" stroke="#1A2329" stroke-width="2"/>
+      <text x="1280" y="498" class="mono" font-size="15" fill="#87939C">VERDICT</text>
+      <text x="1475" y="498" text-anchor="end" class="mono" font-size="15" fill="#42F59E">SCOPED</text>
+      <text x="1280" y="528" class="mono" font-size="15" fill="#87939C">V2V LEVEL</text>
+      <text x="1475" y="528" text-anchor="end" class="mono" font-size="15" fill="#42F59E">EVIDENCED</text>
+
+      <text x="80" y="810" class="sans" font-size="27" fill="#F2F0E9">the goal is not to make agents agree.</text>
+      <text x="80" y="852" class="sans" font-size="27" fill="#42F59E">it is to make unsupported claims die before they reach you.</text>
+
+    </svg>

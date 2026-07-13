@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+
+    <defs>
+      <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+        <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1A2329" stroke-width="1" opacity="0.45"/>
+      </pattern>
+      <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+        <feGaussianBlur stdDeviation="7" result="blur"/>
+        <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+      </filter>
+      <linearGradient id="accentLine" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0" stop-color="#58636B"/>
+        <stop offset="0.35" stop-color="#55D8FF"/>
+        <stop offset="1" stop-color="#42F59E"/>
+      </linearGradient>
+      <style>
+        .sans { font-family: 'Segoe UI', Arial, sans-serif; }
+        .mono { font-family: 'Cascadia Mono', 'Consolas', monospace; }
+        .caps { letter-spacing: 3px; }
+      </style>
+    </defs>
+
+    <rect width="1600" height="900" fill="#090B0D"/>
+    <rect width="1600" height="900" fill="url(#grid)"/>
+
+      <text x="100" y="80" class="mono caps" font-size="19" fill="#42F59E">SANITIZED CASE / OPTIONS PAPER TRADING</text>
+      <text x="100" y="165" class="sans" font-size="62" font-weight="750" fill="#F2F0E9">productive disagreement changes the artifact.</text>
+      <text x="100" y="215" class="sans" font-size="24" fill="#87939C">no live capital. no strategy disclosed. verification process only.</text>
+
+          <rect x="100" y="285" width="400" height="245" rx="24" fill="#11161A" stroke="#FF5C6C" stroke-width="2"/>
+          <text x="135" y="340" class="mono caps" font-size="17" fill="#87939C">REVIEW 01</text>
+          <text x="135" y="410" class="mono" font-size="48" font-weight="800" fill="#FF5C6C">RED</text>
+          <line x1="135" y1="438" x2="465" y2="438" stroke="#1A2329" stroke-width="2"/>
+          <text x="135" y="478" class="sans" font-size="21" fill="#F2F0E9">signed states +</text>
+          <text x="135" y="508" class="sans" font-size="21" fill="#F2F0E9">duplicate actions</text>
+        <path d="M 520 407 L 572 407" stroke="#87939C" stroke-width="3"/><path d="M 563 398 L 574 407 L 563 416" fill="none" stroke="#87939C" stroke-width="3"/>
+          <rect x="600" y="285" width="400" height="245" rx="24" fill="#11161A" stroke="#FF5C6C" stroke-width="2"/>
+          <text x="635" y="340" class="mono caps" font-size="17" fill="#87939C">REVIEW 02</text>
+          <text x="635" y="410" class="mono" font-size="48" font-weight="800" fill="#FF5C6C">RED</text>
+          <line x1="635" y1="438" x2="965" y2="438" stroke="#1A2329" stroke-width="2"/>
+          <text x="635" y="478" class="sans" font-size="21" fill="#F2F0E9">concurrent authority +</text>
+          <text x="635" y="508" class="sans" font-size="21" fill="#F2F0E9">bypass paths</text>
+        <path d="M 1020 407 L 1072 407" stroke="#87939C" stroke-width="3"/><path d="M 1063 398 L 1074 407 L 1063 416" fill="none" stroke="#87939C" stroke-width="3"/>
+          <rect x="1100" y="285" width="400" height="245" rx="24" fill="#11161A" stroke="#42F59E" stroke-width="2"/>
+          <text x="1135" y="340" class="mono caps" font-size="17" fill="#87939C">PRIVATE REVIEW 03</text>
+          <text x="1135" y="410" class="mono" font-size="48" font-weight="800" fill="#42F59E">GREEN</text>
+          <line x1="1135" y1="438" x2="1465" y2="438" stroke="#1A2329" stroke-width="2"/>
+          <text x="1135" y="478" class="sans" font-size="21" fill="#F2F0E9">no remaining P0/P1</text>
+          <text x="1135" y="508" class="sans" font-size="21" fill="#F2F0E9">private scope</text>
+
+      <rect x="100" y="605" width="1400" height="135" rx="22" fill="#151C21" stroke="#1A2329" stroke-width="2"/>
+      <text x="170" y="662" class="mono" font-size="34" font-weight="750" fill="#F2F0E9">186</text>
+      <text x="170" y="702" class="sans" font-size="18" fill="#87939C">passing tests</text>
+      <text x="500" y="662" class="mono" font-size="34" font-weight="750" fill="#F2F0E9">42</text>
+      <text x="500" y="702" class="sans" font-size="18" fill="#87939C">passing subtests</text>
+      <text x="830" y="662" class="mono" font-size="34" font-weight="750" fill="#F2F0E9">20</text>
+      <text x="830" y="702" class="sans" font-size="18" fill="#87939C">forced races</text>
+      <text x="1160" y="662" class="mono" font-size="34" font-weight="750" fill="#F2F0E9">1</text>
+      <text x="1160" y="702" class="sans" font-size="18" fill="#87939C">natural PAPER run</text>
+      <text x="100" y="815" class="sans" font-size="20" fill="#87939C">private receipts reported; raw artifacts withheld. no live-money or profitability claim.</text>
+      <text x="1500" y="815" text-anchor="end" class="mono caps" font-size="17" fill="#42F59E">RED CAN BE A VERIFIED RESULT.</text>
+
+    </svg>

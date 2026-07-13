@@ -1,0 +1,281 @@
+{
+  "project": "vibes-to-verified",
+  "version": "0.1.0-rc1",
+  "status": "local_candidate_not_published",
+  "generated_on": "2026-07-13",
+  "artifacts": [
+    {
+      "path": ".gitattributes",
+      "size_bytes": 140,
+      "sha256": "3ada4c6b7ba44edbbde0fabb2ff939d902d58b23f6657833b244bdef83c3ee46"
+    },
+    {
+      "path": ".github/workflows/validate.yml",
+      "size_bytes": 1131,
+      "sha256": "ab2ccaf78f5c771a70be609e9be298007afbd955747bd2f29f9db5f2310c5980"
+    },
+    {
+      "path": ".gitignore",
+      "size_bytes": 178,
+      "sha256": "90ba128b1450f2394ca6bfb0d4a1f468d18c8a4a36ef9553be26b2c5c5416b9b"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "size_bytes": 1987,
+      "sha256": "7b8d2c7245191d41ac82634b9174ace49bc6318b2457a2f27151e5b12f72f585"
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "size_bytes": 1667,
+      "sha256": "f2b82b350a0b27924f2f03718c090fb39d54f5f3f268e4c228dd0d7b73a21fb6"
+    },
+    {
+      "path": "LICENSE",
+      "size_bytes": 1065,
+      "sha256": "496e78383395f56806bb30b2dd9673d62271ffe9633c88a12c517ec60f82d9eb"
+    },
+    {
+      "path": "README.md",
+      "size_bytes": 7059,
+      "sha256": "fdd14a30f0d751e16427f9c4fd844f307c29a6858710f375679e443fff3648ae"
+    },
+    {
+      "path": "SECURITY.md",
+      "size_bytes": 1790,
+      "sha256": "13c7e0f0604a70af32d0415da8a83a34dc5ab77126388deb3629935a1e0cad3c"
+    },
+    {
+      "path": "SKILL.md",
+      "size_bytes": 13811,
+      "sha256": "50614283da6a7ffb87038e42cd0807ac05e84e586a2bbf4539be4992075761ec"
+    },
+    {
+      "path": "SOURCES.md",
+      "size_bytes": 2418,
+      "sha256": "857b5ec233d05b720ffe45a1b9c6e13646235179af8a327ecf0769200cc91a3c"
+    },
+    {
+      "path": "article/article.md",
+      "size_bytes": 10890,
+      "sha256": "f04ee7b74a6629fee9d99a0149de4c7605f012b2e768a232c9ebcd903b0c598a"
+    },
+    {
+      "path": "article/launch-copy.md",
+      "size_bytes": 2725,
+      "sha256": "0f226cbe2c322241b90f61294c372980309940fcea9b788cadb65c1656157501"
+    },
+    {
+      "path": "article/media-map.md",
+      "size_bytes": 2753,
+      "sha256": "01185e53a365129e8184c7c7655f96e7922c5c792ef64c3ebf5b0f4cf833aa89"
+    },
+    {
+      "path": "examples/coding-agent.md",
+      "size_bytes": 1774,
+      "sha256": "7d0ceab7fb033da23875f1817ae8182fbf8479da492c70e9c8dbbb168c68ef31"
+    },
+    {
+      "path": "examples/evidence-card-v0.yaml",
+      "size_bytes": 831,
+      "sha256": "4e2874c3a06fc724a9854242d3fac6c74f7313d9a2d93a90c7c3c6e8cdb5face"
+    },
+    {
+      "path": "examples/options-paper-trading-risk-control.md",
+      "size_bytes": 3592,
+      "sha256": "f4fe19ddbcf057c1656497cae9236da29fbc0baf1246296ab3acfcbf4b5a5449"
+    },
+    {
+      "path": "examples/research-claim.md",
+      "size_bytes": 1683,
+      "sha256": "3da0f752ef53cb2943f28b4bfbcd4c98f969f46681e32f6a16ef902a61b29ea4"
+    },
+    {
+      "path": "media/ALT_TEXT.md",
+      "size_bytes": 1918,
+      "sha256": "ece2d2dbd9f984b21fed98f99a42c0c31766a5afab868a79271ddc3ae7783d43"
+    },
+    {
+      "path": "media/compose_hero.py",
+      "size_bytes": 2867,
+      "sha256": "98b98fbbce036f60dc77d57668139f9246a3f0477eaa24b5be7aa9544c7fdd2b"
+    },
+    {
+      "path": "media/exports/article-cover.png",
+      "size_bytes": 1247696,
+      "sha256": "fe252ee758ad2204b911525518c6588d43d4f017f0434f308bb4c2ca4716e885"
+    },
+    {
+      "path": "media/exports/github-social-card.png",
+      "size_bytes": 52106,
+      "sha256": "8e237b6cfd9ee3791f85cc59d20ac96b274b417e07749a473fe4d1c9af17fe3e"
+    },
+    {
+      "path": "media/exports/github-social-card.svg",
+      "size_bytes": 3630,
+      "sha256": "3ba960e32b9343f2a1373354156e9e963ba01a7c93fdbbae139aa4007d03ae5d"
+    },
+    {
+      "path": "media/exports/paper-trading-receipt.png",
+      "size_bytes": 82491,
+      "sha256": "c5da28464d525d0588b9c9f5ae36e36005caf4ccfa32ceec47ea5f062353a81f"
+    },
+    {
+      "path": "media/exports/paper-trading-receipt.svg",
+      "size_bytes": 4910,
+      "sha256": "6a942c0ab3165428f3f84737ac10264920df64ee2dfd421994881874da6a6919"
+    },
+    {
+      "path": "media/exports/v2v-scale.png",
+      "size_bytes": 80152,
+      "sha256": "b33744984969684652a038450821c6eef75b6583c37fbeccfd0d5e98faaa8689"
+    },
+    {
+      "path": "media/exports/v2v-scale.svg",
+      "size_bytes": 5836,
+      "sha256": "391708f5bed1419cc0c720c15754c0b561b67147397c5fda44e7effd72f73e5a"
+    },
+    {
+      "path": "media/exports/v2v-workflow.png",
+      "size_bytes": 115613,
+      "sha256": "690dd34a216aa820a172f759ccdc307e4edfac8f29228bac385d1bb4a694d24c"
+    },
+    {
+      "path": "media/exports/v2v-workflow.svg",
+      "size_bytes": 8022,
+      "sha256": "e2c50c260dd35614e25c023b84b3d3151695da58cc47ddb75a99a876bee95c95"
+    },
+    {
+      "path": "media/exports/vibes-to-verified-vertical.mp4",
+      "size_bytes": 2247155,
+      "sha256": "c939cd53d05428e1cda77f0bfa370fdffa0ab145befebdc24c48d8e0090b6beb"
+    },
+    {
+      "path": "media/generate_graphics.py",
+      "size_bytes": 14483,
+      "sha256": "b3f8a15922663448a9d8941f6bc930b323ce0881bf6361903c953224bb890b9c"
+    },
+    {
+      "path": "media/source/hero-base-gpt-image-2.png",
+      "size_bytes": 1570019,
+      "sha256": "599cda608e4896abe9bff0568be4716bc54d4420b5094ebfc08c0869d2747150"
+    },
+    {
+      "path": "media/source/hero-prompt.md",
+      "size_bytes": 1932,
+      "sha256": "f72ed684e3ccff036f7cc791b890cd9788b49a4c5cc8e846b51dfb642a410930"
+    },
+    {
+      "path": "references/common-failure-modes.md",
+      "size_bytes": 3315,
+      "sha256": "b3f905887a6286e1f67f73e392588d95bf5879558643e11c36f1d8f9db1a7616"
+    },
+    {
+      "path": "references/v2v-scale.md",
+      "size_bytes": 3360,
+      "sha256": "81704402cd896450d74f534cc1aef852eb040ecffbc9d5357cc6a4f574569da2"
+    },
+    {
+      "path": "references/verdict-vs-evidence.md",
+      "size_bytes": 2279,
+      "sha256": "ad27e32431d322c5db2d009021fdc95a76565d7db2fd305692d3878344943a90"
+    },
+    {
+      "path": "release/APPROVAL.md",
+      "size_bytes": 3531,
+      "sha256": "bebfcb3b2f20291615e33cecac2661194d3951e71be8205126fbeffe0979b3b0"
+    },
+    {
+      "path": "release/reviews/review-dispositions.md",
+      "size_bytes": 3639,
+      "sha256": "52660e5bac7cfd5da4788c40940d50d76c0b4bed1e8edf0c87cac14857c84e70"
+    },
+    {
+      "path": "requirements-dev.txt",
+      "size_bytes": 62,
+      "sha256": "7dd8fe116e816aacb60537b404515e9dbe3945667518a167a31401e8fd5a4851"
+    },
+    {
+      "path": "schemas/evidence-card.schema.json",
+      "size_bytes": 8185,
+      "sha256": "960b447bd4115662a34490ef571cff01d8573da1094f5892cdd01bda7d2c6812"
+    },
+    {
+      "path": "scripts/build_release_manifest.py",
+      "size_bytes": 2878,
+      "sha256": "9c9565f8c5dc32e4ab73f172ff5cf8972b9964b448570c6c30c485fb39e335b8"
+    },
+    {
+      "path": "scripts/privacy_scan.py",
+      "size_bytes": 6243,
+      "sha256": "7f236fa64c685ff1f6760176b04e0ba9b546b4ca017a8dadee765dd6678c43e5"
+    },
+    {
+      "path": "scripts/validate.py",
+      "size_bytes": 10422,
+      "sha256": "171c7987a59023447ee27a3dd4549f267e3f154c8bd113c21601312a3390c168"
+    },
+    {
+      "path": "templates/approach-registry.md",
+      "size_bytes": 1359,
+      "sha256": "df2927735e1078a86bf487295953a658642132463d31c8b64ce0fa56f1522a8d"
+    },
+    {
+      "path": "templates/evidence-card.yaml",
+      "size_bytes": 802,
+      "sha256": "869fb8e178586f7a69b0633ac143761b898b6fe33850d60ce286efd355f0c5ce"
+    },
+    {
+      "path": "templates/refutation-round.md",
+      "size_bytes": 1519,
+      "sha256": "c7806621424ac62c82ea383aabfba0326a17fff122df4e06bf29772eeffe0e11"
+    },
+    {
+      "path": "tests/test_package.py",
+      "size_bytes": 25351,
+      "sha256": "1957bbf9a2bda8dd755a49b681262c1f8ba59f218522404e7410591cbedb376f"
+    },
+    {
+      "path": "video/README.md",
+      "size_bytes": 941,
+      "sha256": "9e37a97a93031337e7e8d668079045a560ba58baefdd971cc163f9f865a1b7c4"
+    },
+    {
+      "path": "video/plan.md",
+      "size_bytes": 2384,
+      "sha256": "1222205b2fd0d403e62c64e4ec9b4a8baebec001b105fd7f71650f57e5b057b8"
+    },
+    {
+      "path": "video/vibes_to_verified.py",
+      "size_bytes": 10709,
+      "sha256": "9630db90e82cd17d4523211aedbf45e6978b59f96b2b45b3cc864a1f199d6e21"
+    }
+  ],
+  "video_probe": {
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "codec_name": "h264",
+        "width": 1080,
+        "height": 1920,
+        "r_frame_rate": "30/1"
+      }
+    ],
+    "format": {
+      "duration": "28.663997",
+      "size": "2247155"
+    }
+  },
+  "verification_commands": [
+    "python scripts/validate.py",
+    "python -m unittest discover -s tests -v",
+    "python scripts/privacy_scan.py",
+    "ruff check scripts media video tests",
+    "git diff --cached --check"
+  ],
+  "publication_gates": {
+    "public_github_repository": "not_approved",
+    "x_article": "not_approved",
+    "x_launch_post_and_replies": "not_approved"
+  }
+}

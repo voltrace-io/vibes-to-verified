@@ -1,0 +1,43 @@
+# Independent Review Dispositions
+
+## Status
+
+Pre-freeze review findings have been repaired. The final manifest-bound candidate still requires a fresh read-only review before publication can be recommended.
+
+## Contract Review
+
+| Finding | Disposition | Repair |
+|---|---|---|
+| Promotion evidence could support a different claim | Accepted | Semantic validation now requires promotion evidence to support the card `claim_id`. |
+| Evidence could describe stale bytes | Accepted | Every evidence and operational record now binds `subject_artifact` to `scope.artifact`. |
+| V2 accepted a free-text item labeled `test` | Accepted | Test records require procedure, expected result, observed result, and repetition count. |
+| V3 accepted a self-labeled review | Accepted | Review records require reviewer, independence mode, attempted challenge, and result; only declared independent human or agent reviews promote to V3. |
+| V4 accepted incomplete operational proof | Accepted | V4 requires separate natural-runtime and read-back records, monitoring, recovery visibility, and claim-dependent repetition. |
+| GREEN could coexist with a refuted or blocked main claim | Accepted | GREEN now requires no open blockers and, at V3+, a survived main-claim disposition. |
+| Verdict and evidence maturity lacked explicit axis tests | Accepted | Regression tests cover valid `GREEN / V0` and `RED / V4` combinations. |
+
+## Privacy and Release Review
+
+| Finding | Disposition | Repair |
+|---|---|---|
+| Manifest covered only selected files | Accepted | Manifest generation now hashes every tracked candidate file except the self-referential manifest. |
+| Scanner skipped text files and binary metadata | Accepted | Scanner now enumerates tracked files, scans decodable text, inspects PNG metadata/chunks, and reads video tags through `ffprobe`. |
+| Scanner source embedded a private workspace literal | Accepted | The signature is assembled dynamically and remains covered by a leak fixture. |
+| GPT Image source contained a C2PA/JUMBF `caBX` chunk | Accepted | The tracked source is a pixel-identical metadata-sanitized export; the public provenance note records the treatment. |
+| Public files embedded an unverified repository destination | Accepted | Publication destinations are placeholders and the social card is URL-free until public read-back. |
+| Public PAPER case transferred private V4 authority | Accepted | The private V4 classification is reported only; the public claim is `BLOCKED / V0` because raw primary receipts are withheld. |
+| Automated disclosure scanning could be mistaken for semantic proof | Accepted | `SECURITY.md` now states the scanner boundary and requires human semantic review. |
+
+## Source and Editorial Review
+
+| Finding | Disposition | Repair |
+|---|---|---|
+| “64-agent proof prompt” exceeded the source | Accepted | Copy now says the proof-search prompt allowed up to 64 concurrent agents. |
+| Exact private case results lacked public primary receipts | Accepted | Article links to a sanitized case, labels results as internally reported, and keeps the public private-V4 claim at V0. |
+| Broad multi-agent and engineering generalizations were unsupported | Accepted | Language was narrowed to common or many patterns. |
+| Categorical benefits exceeded evidence | Accepted | Benefits now use calibrated “can” language. |
+| Package could be read as proven | Accepted | Launch metadata says `tested_not_proven`. |
+
+## Remaining Gate
+
+A fresh reviewer must inspect the exact manifest-bound candidate. Publication remains unauthorized until that review passes and the user separately approves each public gate.

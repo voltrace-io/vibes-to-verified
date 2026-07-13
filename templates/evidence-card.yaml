@@ -1,0 +1,28 @@
+claim_id: C-01
+claim: Replace with one precise falsifiable statement.
+verdict: BLOCKED
+v2v_level: V0
+scope:
+  environment: Replace with the environment in which the verdict holds.
+  artifact: Replace with an exact path, URL, commit, hash, or state identifier.
+  observed_at: "2026-01-01T00:00:00Z"
+acceptance_criteria:
+  - Replace with an observable success condition.
+rejection_criteria:
+  - Replace with an observable counterexample.
+evidence: []
+claim_dispositions: []
+open_blockers:
+  - Evidence has not yet been collected.
+operational_proof: []
+limitations:
+  - Evidence has not yet been collected.
+disclosure_boundary:
+  public:
+    - Problem class
+    - Verification process
+  private:
+    - Secrets
+    - Account data
+    - Proprietary implementation
+next_action: Inspect the primary artifact.

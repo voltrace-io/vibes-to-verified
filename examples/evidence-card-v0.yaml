@@ -1,0 +1,24 @@
+claim_id: C-01
+claim: Two concurrent workers cannot both acquire authority for the same operation.
+verdict: BLOCKED
+v2v_level: V0
+scope:
+  environment: Illustrative documentation fixture; no execution occurred.
+  artifact: fixture:concurrency-example
+  observed_at: "2026-07-13T20:00:00Z"
+acceptance_criteria:
+  - Every exercised race produces exactly one authority winner.
+rejection_criteria:
+  - Any exercised race produces zero or multiple authority winners.
+evidence: []
+claim_dispositions: []
+open_blockers:
+  - No artifact was inspected and no test was run.
+operational_proof: []
+limitations:
+  - No artifact was inspected and no test was run; this is structure only.
+disclosure_boundary:
+  public:
+    - Synthetic claim and criteria
+  private: []
+next_action: Inspect a real final artifact and run the controlled race test.
