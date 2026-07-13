@@ -50,6 +50,7 @@ Pre-freeze review findings have been repaired. The final manifest-bound candidat
 | A refuted review could conflict with a survived disposition | Accepted | Current-artifact negative review results now conflict with a survived disposition and independently block `GREEN`; direct regression coverage is included. |
 | Working-tree line endings could differ from committed SVG blobs | Accepted | Manifest generation now requires staged candidate files and hashes Git index blobs. The contract test compares every entry to its staged commit blob. |
 | `files_scanned` telemetry implied unsupported binaries were semantically inspected | Accepted | CLI telemetry now reports `files_enumerated`; documentation separately names supported text and media inspection. |
+| A publication-gate test embedded the planned repository destination as its sentinel | Accepted | The test now rejects generic hard-coded GitHub repository URLs in publication-facing files while retaining placeholder checks; no unpublished destination is stored in source. |
 
 ## Remaining Gate
 

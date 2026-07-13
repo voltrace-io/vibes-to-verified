@@ -186,8 +186,8 @@
     },
     {
       "path": "release/reviews/review-dispositions.md",
-      "size_bytes": 5682,
-      "sha256": "486bf4829636ea43718c6f154c3e0d8a45ce1daebb2e459f87cb27f06fb0cd7b"
+      "size_bytes": 5958,
+      "sha256": "0e2ef26aa40fb54f4482e909f3d181795d493db0850ae44d3b2708847de30227"
     },
     {
       "path": "requirements-dev.txt",
@@ -231,8 +231,8 @@
     },
     {
       "path": "tests/test_package.py",
-      "size_bytes": 32355,
-      "sha256": "cb05524c082507e3546502aeca25aed3214bdffc274fba83d5af1ec614310519"
+      "size_bytes": 32493,
+      "sha256": "dd5d75706baa9201f6bff4cb90b2d84ab80a71810932b4dbba5819a30fb3f12e"
     },
     {
       "path": "video/README.md",

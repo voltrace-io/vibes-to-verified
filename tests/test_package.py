@@ -560,11 +560,18 @@ class PackageContractTests(unittest.TestCase):
         self.assertIn("'readback_source' is a required property", messages)
 
     def test_publication_destinations_remain_placeholder_gated(self):
-        planned_destination = "github.com/voltrace-io/vibes-to-verified"
-        for relative in ["README.md", "article/article.md", "article/launch-copy.md"]:
+        repository_url = re.compile(
+            r"https?://github\.com/[^/\s]+/[^\s)#]+", re.IGNORECASE
+        )
+        for relative in [
+            "article/article.md",
+            "article/launch-copy.md",
+            "article/media-map.md",
+            "release/APPROVAL.md",
+        ]:
             text = (ROOT / relative).read_text(encoding="utf-8")
             with self.subTest(path=relative):
-                self.assertNotIn(planned_destination, text)
+                self.assertIsNone(repository_url.search(text))
         article = (ROOT / "article" / "article.md").read_text(encoding="utf-8")
         launch = (ROOT / "article" / "launch-copy.md").read_text(encoding="utf-8")
         self.assertIn("{{REPOSITORY_URL}}", article)
