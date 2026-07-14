@@ -65,7 +65,10 @@ Pre-freeze review findings have been repaired. The final manifest-bound candidat
 | The narrated launch asset was not manifest-bound or documented | Accepted | The exact MP4 is promoted to `media/exports/vibes-to-verified-launch-cut-r1.mp4`, required by the validator, contract-tested, probed by the manifest, and documented with provenance and accessibility text. |
 | Full-playback disclosure review backend could not ingest the local launch cut | Partially mitigated | Technical decode and black/freeze/silence checks passed; a 2 fps chronological contact sheet and exact-audio transcript were independently inspected for visible/audible disclosure. The backend ingestion limitation remains disclosed. |
 | “Rights-cleared” wording lacked a public redistribution/license boundary | Accepted | Public copy now qualifies the creator's publication-rights report, withholds the private receipt, identifies the Suno track in `media/RIGHTS.md`, and excludes embedded narration/music from standalone MIT reuse. |
-| Exact skill-release lessons existed only as installed-copy drift | Accepted | The slash-command, candidate-boundary, media-promotion, and immutable-editorial procedures are now included deliberately in `SKILL.md` and three tracked references. |
+| Exact skill-release lessons existed only as installed-copy drift | Accepted | The slash-command, candidate-boundary, media-promotion, and immutable-editorial procedures are included deliberately in `SKILL.md` and three tracked references. |
+| The documented launch-cut hash still identified the superseded media | Accepted | `video/README.md` now records the exact promoted blob hash, and a regression test binds the documented hash to both the file bytes and manifest entry. |
+| The changelog could imply exact-candidate natural invocation | Accepted | The historical invocation is now explicitly identified as pre-hardening; exact-candidate and Claude Code live invocation remain untested. |
+| The changelog said final artifacts were not yet committed | Accepted | Release-state wording now records that the artifacts are committed locally while fresh review and publication approvals remain pending. |
 
 ## Remaining Gate
 

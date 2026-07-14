@@ -22,7 +22,7 @@ The tracked package and narrated motion launch asset have been exercised locally
 | Gate | Result |
 |---|---|
 | Required artifact validator | PASS — 42 required files |
-| Contract tests | PASS — 53/53 against the manifest-bound candidate |
+| Contract tests | PASS — 54/54 against the manifest-bound candidate |
 | Privacy scan | PASS — 55 tracked files enumerated; supported text and media metadata inspected |
 | Ruff static analysis | PASS |
 | Python compilation | PASS |
@@ -71,7 +71,7 @@ The package includes:
 
 1. Stage every tracked candidate change except `release/manifest.json`.
 2. Rebuild `release/manifest.json` from the staged Git blobs and stage it.
-3. Run the complete verification suite and require 53/53 tests.
+3. Run the complete verification suite and require 54/54 tests.
 4. Commit the immutable candidate locally.
 5. Run fresh independent contract, privacy, and editorial reviews against that exact commit.
 6. Repair any blocker, rebuild the manifest, and repeat if required.

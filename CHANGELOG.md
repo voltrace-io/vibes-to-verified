@@ -25,7 +25,7 @@ All notable changes to Vibes to Verified will be recorded here.
 - Added package, media, link, privacy, and video contract tests.
 - Added deterministic SVG/PNG graphics and a GPT Image 2-based Article cover.
 - Added a native 9:16 muted Manim overview and a narrated moving-background launch cut.
-- Exercised the direct `/v2v` command once through the active Hermes Telegram gateway after `/reload-skills`; Claude Code live invocation remains untested.
+- Exercised the direct `/v2v` command once through the active Hermes Telegram gateway after `/reload-skills` before final package hardening. That historical invocation does not establish natural-path execution for this exact release candidate; exact-candidate and Claude Code live invocation remain untested.
 - Added the complete draft X Article and launch copy.
 
-The release remains a candidate until independent review is resolved and the exact final artifacts are committed.
+The exact final artifacts are committed locally. The release remains a candidate until fresh exact-commit review is resolved and the user separately approves each publication gate.

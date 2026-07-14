@@ -685,6 +685,18 @@ class PackageContractTests(unittest.TestCase):
                 else:
                     self.assertEqual(audio, [])
 
+    def test_documented_launch_hash_matches_manifest_and_file(self):
+        relative = "media/exports/vibes-to-verified-launch-cut-r1.mp4"
+        readme = (ROOT / "video" / "README.md").read_text(encoding="utf-8")
+        match = re.search(r"SHA-256: `([0-9a-f]{64})`", readme)
+        self.assertIsNotNone(match)
+        documented = match.group(1)
+        actual = hashlib.sha256((ROOT / relative).read_bytes()).hexdigest()
+        manifest = json.loads((ROOT / "release" / "manifest.json").read_text(encoding="utf-8"))
+        manifested = next(item["sha256"] for item in manifest["artifacts"] if item["path"] == relative)
+        self.assertEqual(documented, actual)
+        self.assertEqual(documented, manifested)
+
     def test_privacy_scan_detects_normal_windows_paths(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)

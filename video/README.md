@@ -16,7 +16,7 @@ Verified properties:
 - 1080 × 1920
 - 30 fps
 - 28.665 seconds
-- SHA-256: `f067ebb462e545d4a4bad3750cc098cc639258d189085e7fa8c6a5f30a76150e`
+- SHA-256: `3e118a454dcb0e307dab18e9834cc03ef8f9606662ccd399c5fb946527449b1d`
 
 The launch cut combines locally generated text-free LTX-2.3 motion plates, authored typography and diagrams, the creator's narration, and a music track the creator reports as cleared for this publication. The private rights receipt is withheld. Embedded narration and music are excluded from the repository's MIT grant and are not licensed for standalone reuse; see [`../media/RIGHTS.md`](../media/RIGHTS.md). The public package includes the final rendered artifact, not the private voice reference, generated plates, keyframes, or production workspace.
 
