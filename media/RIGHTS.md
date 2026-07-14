@@ -3,7 +3,7 @@
 This note applies to the rendered launch asset:
 
 ```text
-media/exports/vibes-to-verified-launch-v4.mp4
+media/exports/vibes-to-verified-launch-cut-r1.mp4
 ```
 
 ## Included components

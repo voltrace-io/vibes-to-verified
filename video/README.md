@@ -7,7 +7,7 @@ The package contains two complementary 9:16 videos.
 Public launch asset:
 
 ```text
-media/exports/vibes-to-verified-launch-v4.mp4
+media/exports/vibes-to-verified-launch-cut-r1.mp4
 ```
 
 Verified properties:

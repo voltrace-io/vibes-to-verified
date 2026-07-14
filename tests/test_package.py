@@ -653,7 +653,7 @@ class PackageContractTests(unittest.TestCase):
     def test_video_export_contract(self):
         expected = {
             "vibes-to-verified-vertical.mp4": False,
-            "vibes-to-verified-launch-v4.mp4": True,
+            "vibes-to-verified-launch-cut-r1.mp4": True,
         }
         for name, requires_audio in expected.items():
             path = ROOT / "media" / "exports" / name

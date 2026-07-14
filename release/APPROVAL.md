@@ -2,9 +2,9 @@
 
 ## Status
 
-**YELLOW — repaired `/v2v` working candidate, not published**
+**YELLOW — repaired replacement candidate, fresh exact-commit review required, not published**
 
-The direct `/v2v` invocation, tracked package, and narrated V4 launch asset have been exercised locally. The latest independent review found the pre-repair candidate unbound and editorially stale; those findings were repaired in this candidate. A fresh review of the exact post-repair commit is still required. No public action is authorized by this file.
+The tracked package and narrated motion launch asset have been exercised locally. Fresh independent review of the prior exact candidate found stale installed-skill equality/runtime wording and use of `V4` as a media revision label despite `V4` already meaning Operational evidence. This replacement removes those claims, uses a neutral launch-cut revision, and replaces the perceptually underused Comfy footage with native-speed motion. Fresh exact-commit review is still required. No public action is authorized by this file.
 
 ## Candidate
 
@@ -33,8 +33,8 @@ The direct `/v2v` invocation, tracked package, and narrated V4 launch asset have
 | GPT Image source metadata | PASS — pixel content preserved; `caBX`, EXIF, and PNG info removed |
 | MP4 contract | PASS |
 | Clean Claude-style directory layout | PASS — copy validation only; live discovery unclaimed |
-| Hermes command path | PASS — one scoped `/v2v` invocation used the same `name: v2v` routing before final skill-body hardening; exact-commit discovery, resolver mapping, and installed `SKILL.md` hash equality pass, while an exact-commit natural invocation remains unclaimed |
-| Narrated V4 launch video | PASS — decode, stream contract, black/freeze/silence checks, sampled-frame disclosure review, and exact-audio transcript scan; automated full-video backend ingestion remained unavailable |
+| Hermes command path | PARTIAL — live discovery and resolver mapping pass for the currently installed skill; the installed package differs from this candidate, and exact-candidate natural invocation remains unclaimed |
+| Narrated motion launch cut | PASS — neutral revision label; native-speed Comfy motion; full decode; zero freeze, black, and silence intervals; studio-mastered narration; sampled-frame inspection |
 | Prior skill/schema review findings | REPAIRED — regression-covered |
 | Prior privacy/disclosure review findings | REPAIRED — scanner and public scope narrowed |
 | Prior source/editorial review findings | REPAIRED — source and private-case claims recalibrated |
@@ -55,7 +55,7 @@ The package includes:
 - deterministic diagrams
 - metadata-sanitized GPT Image 2 conceptual source with deterministic typography
 - native muted vertical Manim overview
-- narrated moving-background V4 launch cut with private production sources excluded
+- narrated moving-background launch cut with private production sources excluded
 - sanitized options PAPER-trading case whose private-V4 claim is public `BLOCKED / V0`
 
 ## Public Gates

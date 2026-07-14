@@ -75,7 +75,7 @@ def main() -> None:
         )
 
     muted_video_path = ROOT / "media" / "exports" / "vibes-to-verified-vertical.mp4"
-    launch_video_path = ROOT / "media" / "exports" / "vibes-to-verified-launch-v4.mp4"
+    launch_video_path = ROOT / "media" / "exports" / "vibes-to-verified-launch-cut-r1.mp4"
     manifest = {
         "project": "vibes-to-verified",
         "version": "0.1.0-rc1",

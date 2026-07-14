@@ -49,7 +49,7 @@ REQUIRED_PATHS = [
     "media/exports/v2v-scale.png",
     "media/exports/v2v-workflow.png",
     "media/exports/paper-trading-receipt.png",
-    "media/exports/vibes-to-verified-launch-v4.mp4",
+    "media/exports/vibes-to-verified-launch-cut-r1.mp4",
     "media/exports/vibes-to-verified-vertical.mp4",
     "scripts/build_release_manifest.py",
     "release/manifest.json",

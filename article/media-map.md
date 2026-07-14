@@ -54,7 +54,7 @@
 
 ## Narrated Motion Launch Cut
 
-**File:** `media/exports/vibes-to-verified-launch-v4.mp4`
+**File:** `media/exports/vibes-to-verified-launch-cut-r1.mp4`
 
 **Placement:** Recommended main launch media.
 

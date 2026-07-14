@@ -50,7 +50,7 @@ A confident answer can be `GREEN / V0`. A rigorously reproduced failure can be `
 
 ## 29-Second Visual Walkthrough
 
-[Watch the narrated motion launch cut](media/exports/vibes-to-verified-launch-v4.mp4).
+[Watch the narrated motion launch cut](media/exports/vibes-to-verified-launch-cut-r1.mp4).
 
 A separate [muted deterministic Manim overview](media/exports/vibes-to-verified-vertical.mp4), its source scene, and production plan are included under [`video/`](video/). The launch cut uses locally generated moving visual plates, authored typography, the creator's narration, and a music track the creator reports as cleared for this publication; the private rights receipt and production assets are not part of the public package. See [`media/RIGHTS.md`](media/RIGHTS.md).
 
@@ -89,7 +89,7 @@ Expose `SKILL.md` and its `references/`, `templates/`, and `schemas/` directorie
 Run Vibes to Verified on this claim and return an evidence card.
 ```
 
-Clean-copy validation passed in both layouts. Hermes discovery and direct `/v2v` invocation were exercised once in the active Telegram gateway after `/reload-skills`; Claude Code live discovery and execution remain untested. This does not establish general runtime compatibility.
+Clean-copy validation passed in both layouts. The current Hermes installation discovers `/v2v` and resolves it to the installed V2V skill. One direct invocation was exercised before the final package hardening, so it does **not** establish natural-path execution for this exact release candidate. Exact-candidate invocation and Claude Code live discovery and execution remain untested.
 
 ## Example Output
 
@@ -185,4 +185,4 @@ The multi-agent search design was inspired in part by the OpenAI prompt linked i
 
 ## License
 
-Code, documentation, deterministic graphics, and the muted Manim overview are MIT licensed. Embedded narration and music in the rendered V4 launch video are excluded from that grant and are distributed only as part of the complete render under the creator's reported publication rights. See [`LICENSE`](LICENSE) and [`media/RIGHTS.md`](media/RIGHTS.md).
+Code, documentation, deterministic graphics, and the muted Manim overview are MIT licensed. Embedded narration and music in the rendered launch cut are excluded from that grant and are distributed only as part of the complete render under the creator's reported publication rights. See [`LICENSE`](LICENSE) and [`media/RIGHTS.md`](media/RIGHTS.md).
