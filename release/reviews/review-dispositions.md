@@ -65,11 +65,24 @@ Pre-freeze review findings have been repaired. The final manifest-bound candidat
 | The narrated launch asset was not manifest-bound or documented | Accepted | The exact MP4 is promoted to `media/exports/vibes-to-verified-launch-cut-r1.mp4`, required by the validator, contract-tested, probed by the manifest, and documented with provenance and accessibility text. |
 | Full-playback disclosure review backend could not ingest the local launch cut | Partially mitigated | Technical decode and black/freeze/silence checks passed; a 2 fps chronological contact sheet and exact-audio transcript were independently inspected for visible/audible disclosure. The backend ingestion limitation remains disclosed. |
 | “Rights-cleared” wording lacked a public redistribution/license boundary | Accepted | Public copy now qualifies the creator's publication-rights report, withholds the private receipt, identifies the Suno track in `media/RIGHTS.md`, and excludes embedded narration/music from standalone MIT reuse. |
-| Exact skill-release lessons existed only as installed-copy drift | Accepted | The slash-command, candidate-boundary, media-promotion, and immutable-editorial procedures are included deliberately in `SKILL.md` and three tracked references. |
+| The changelog said production sources were “preserved” even though only authored code and deterministic assets are tracked and the private generation/compositing workspaces are excluded | Accepted | The changelog now distinguishes tracked authored/deterministic assets from excluded private production workspaces and account/rights receipts. |
+| Exact skill-release lessons existed only as installed-copy drift | Accepted | The slash-command, candidate-boundary, media-promotion, and immutable-editorial procedures are included deliberately in the manifest-bound package. |
 | The documented launch-cut hash still identified the superseded media | Accepted | `video/README.md` now records the exact promoted blob hash, and a regression test binds the documented hash to both the file bytes and manifest entry. |
 | The changelog could imply exact-candidate natural invocation | Accepted | The historical invocation is now explicitly identified as pre-hardening; exact-candidate and Claude Code live invocation remain untested. |
 | The changelog said final artifacts were not yet committed | Accepted | Release-state wording now records that the artifacts are committed locally while fresh review and publication approvals remain pending. |
 
+## Fresh exact-candidate review round — 2026-07-14
+
+**Substantive candidate:** commit `40c2264b851c9d92f1f60a204a0bdb44468f88c9`, tree `b6c6794e39922b436f2676cc8d2e5c5b966d1adf`.
+
+| Review lane | Disposition | Evidence boundary |
+|---|---|---|
+| Contract/runtime | GREEN — no evidenced blocker | Exact archive matched the requested tree; 55 tracked files and 54 manifest entries matched; validator, 54/54 tests, privacy scanner, Ruff, compilation, whitespace, full media decode, and media-identity checks passed. |
+| Privacy/disclosure | GREEN — no evidenced blocker in the bounded offline scope | All 55 tracked files were audited; privacy scan passed; manifest entries matched; sampled frames and media metadata showed no account, browser, private-path, notification, or production-workspace disclosure. Sampling was not every-frame semantic inspection; audio was decoded but not independently transcribed; legal sufficiency and the private rights receipt remain outside scope. |
+| Editorial/source | GREEN / V3 — no publication blocker | Public copy, source attribution, neutral media naming, exact media identity, V0–V4 terminology, runtime boundaries, placeholders, rights qualification, and publication gates were consistent at the exact substantive commit. |
+
+This section records external review of the substantive candidate. It does not self-certify the receipt-only successor that contains it; that successor must receive a narrow exact-diff review before publication reliance.
+
 ## Remaining Gate
 
-A fresh reviewer must inspect the exact manifest-bound candidate. Publication remains unauthorized until that review passes and the user separately approves each public gate.
+A narrow reviewer must verify that the receipt-only successor changes only review-state documentation and manifest bindings relative to the substantive candidate. Publication remains unauthorized until that review passes and the user separately approves each public gate.

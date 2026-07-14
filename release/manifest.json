@@ -206,13 +206,13 @@
     },
     {
       "path": "release/APPROVAL.md",
-      "size_bytes": 4508,
-      "sha256": "dc665bf362f8da6d0f9564cfd79b3b0fdbcd65877666f6e1b67396312cf30cfd"
+      "size_bytes": 4934,
+      "sha256": "2301c70c4facbdd54a7e7aabda8066e2882a2614cc66e549af73ad8679f142c1"
     },
     {
       "path": "release/reviews/review-dispositions.md",
-      "size_bytes": 9369,
-      "sha256": "a5b20f6d14ac7072517b3b43e6468c83608ef9f54e02d746b46a673f58a9fb42"
+      "size_bytes": 11302,
+      "sha256": "24e51480da0b6955664b4e3e5a120fb19538f00784a3939d16a8a4c8eee50380"
     },
     {
       "path": "requirements-dev.txt",

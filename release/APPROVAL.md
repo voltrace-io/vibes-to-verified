@@ -2,15 +2,17 @@
 
 ## Status
 
-**YELLOW — repaired replacement candidate, fresh exact-commit review required, not published**
+**GREEN / V3 — substantive candidate passed all three independent review lanes; not published**
 
-The tracked package and narrated motion launch asset have been exercised locally. Fresh independent review of the prior exact candidate found stale installed-skill equality/runtime wording and use of `V4` as a media revision label despite `V4` already meaning Operational evidence. This replacement removes those claims, uses a neutral launch-cut revision, and replaces the perceptually underused Comfy footage with native-speed motion. Fresh exact-commit review is still required. No public action is authorized by this file.
+The manifest-bound substantive candidate at commit `40c2264b851c9d92f1f60a204a0bdb44468f88c9`, tree `b6c6794e39922b436f2676cc8d2e5c5b966d1adf`, received GREEN contract/runtime, GREEN bounded privacy/disclosure, and GREEN / V3 editorial/source verdicts. This receipt-only successor changes review-state documentation and manifest bindings; it still requires a narrow exact-diff review before reliance. No public action is authorized by this file.
 
 ## Candidate
 
 - Project: `vibes-to-verified`
 - Version: `0.1.0-rc1`
 - Workspace: local private repository
+- Substantive reviewed commit: `40c2264b851c9d92f1f60a204a0bdb44468f88c9`
+- Substantive reviewed tree: `b6c6794e39922b436f2676cc8d2e5c5b966d1adf`
 - Manifest: [`manifest.json`](manifest.json)
 - Review dispositions: [`reviews/review-dispositions.md`](reviews/review-dispositions.md)
 - Manifest status: `local_candidate_not_published`
@@ -38,9 +40,10 @@ The tracked package and narrated motion launch asset have been exercised locally
 | Prior skill/schema review findings | REPAIRED — regression-covered |
 | Prior privacy/disclosure review findings | REPAIRED — scanner and public scope narrowed |
 | Prior source/editorial review findings | REPAIRED — source and private-case claims recalibrated |
-| Fresh post-repair manifest-bound contract review | PENDING |
-| Fresh post-repair manifest-bound privacy review | PENDING |
-| Fresh post-repair source/editorial review | PENDING |
+| Fresh post-repair manifest-bound contract review | GREEN — no evidenced blocker at the exact substantive commit |
+| Fresh post-repair manifest-bound privacy review | GREEN — bounded offline review; sampled-frame semantics, not every-frame transcription or legal review |
+| Fresh post-repair source/editorial review | GREEN / V3 — no publication blocker at the exact substantive commit |
+| Receipt-only successor diff review | REQUIRED OUT-OF-BAND — must confirm that only review-state documentation and manifest bindings changed |
 
 ## Scope
 
