@@ -33,7 +33,7 @@ The direct `/v2v` invocation, tracked package, and narrated V4 launch asset have
 | GPT Image source metadata | PASS — pixel content preserved; `caBX`, EXIF, and PNG info removed |
 | MP4 contract | PASS |
 | Clean Claude-style directory layout | PASS — copy validation only; live discovery unclaimed |
-| Hermes direct skill invocation | PASS — one scoped `/v2v` invocation in the active Telegram gateway after `/reload-skills` |
+| Hermes command path | PASS — one scoped `/v2v` invocation used the same `name: v2v` routing before final skill-body hardening; exact-commit discovery, resolver mapping, and installed `SKILL.md` hash equality pass, while an exact-commit natural invocation remains unclaimed |
 | Narrated V4 launch video | PASS — decode, stream contract, black/freeze/silence checks, sampled-frame disclosure review, and exact-audio transcript scan; automated full-video backend ingestion remained unavailable |
 | Prior skill/schema review findings | REPAIRED — regression-covered |
 | Prior privacy/disclosure review findings | REPAIRED — scanner and public scope narrowed |

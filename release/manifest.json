@@ -206,8 +206,8 @@
     },
     {
       "path": "release/APPROVAL.md",
-      "size_bytes": 4233,
-      "sha256": "6462e7d1632a568da92bddff97613b017f327c5dedd8c390cb55188dc9511ff5"
+      "size_bytes": 4383,
+      "sha256": "8c8cfe5ad0df896c17de7d9ba6eb20a905198d6191c1f03f9ec175f145a312dc"
     },
     {
       "path": "release/reviews/review-dispositions.md",
