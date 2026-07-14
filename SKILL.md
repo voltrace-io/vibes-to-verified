@@ -1,5 +1,5 @@
 ---
-name: vibes-to-verified
+name: v2v
 description: Use when AI-generated work, agent conclusions, code, research, automation, or consequential decisions must move from plausible output to scoped, falsifiable, independently challenged, operationally evidenced results. Applies the V2V Scale, adversarial portfolio search, atomic claims, refutation rounds, and evidence-card reporting without assuming the desired answer exists.
 version: 0.1.0
 author: Voltrace

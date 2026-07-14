@@ -4,7 +4,7 @@ All notable changes to Vibes to Verified will be recorded here.
 
 ## 0.1.0 — Release Candidate
 
-- Added the portable `vibes-to-verified` Agent Skill.
+- Added the portable Vibes to Verified Agent Skill with the direct `/v2v` command identifier.
 - Defined the V0–V4 evidence maturity scale.
 - Separated substantive verdict from evidence maturity.
 - Added bounded independent approach and refutation workflows.
@@ -24,7 +24,8 @@ All notable changes to Vibes to Verified will be recorded here.
 - Added coding, research, and sanitized options paper-trading examples.
 - Added package, media, link, privacy, and video contract tests.
 - Added deterministic SVG/PNG graphics and a GPT Image 2-based Article cover.
-- Added a native 9:16 Manim launch video and source scene.
+- Added a native 9:16 muted Manim overview and a narrated moving-background launch cut.
+- Exercised the direct `/v2v` command once through the active Hermes Telegram gateway after `/reload-skills`; Claude Code live invocation remains untested.
 - Added the complete draft X Article and launch copy.
 
 The release remains a candidate until independent review is resolved and the exact final artifacts are committed.

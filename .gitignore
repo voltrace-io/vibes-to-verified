@@ -9,6 +9,7 @@ media/Tex/
 media/texts/
 media/images/
 media/frames/
+video/reviews/
 .private/
 dist/
 *.log

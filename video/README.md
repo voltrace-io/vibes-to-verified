@@ -1,31 +1,55 @@
-# Manim Video
+# Launch Videos
 
-The launch animation is native Manim and contains no generated text or simulated interface footage.
+The package contains two complementary 9:16 videos.
 
-## Verified Render Environment
+## Narrated Motion Launch Cut
 
-- Manim Community `0.20.1`
-- Python `3.14.6`
-- FFmpeg `8.1.2`
-- Output: H.264, 1080 × 1920, 30 fps
-- Measured duration: 28.664 seconds
+Public launch asset:
 
-## Render
+```text
+media/exports/vibes-to-verified-launch-v4.mp4
+```
 
-With Manim and FFmpeg available:
+Verified properties:
+
+- H.264 video, AAC stereo audio
+- 1080 × 1920
+- 30 fps
+- 28.665 seconds
+- SHA-256: `f067ebb462e545d4a4bad3750cc098cc639258d189085e7fa8c6a5f30a76150e`
+
+The launch cut combines locally generated text-free LTX-2.3 motion plates, authored typography and diagrams, the creator's narration, and a rights-cleared music track. The public package includes the final rendered artifact, not the private voice reference, generated plates, keyframes, or production workspace.
+
+Technical QC established a complete decode, no detected black/frozen/silent intervals, and exact AAC packet-hash equality with the approved audio master. A 2 fps disclosure contact sheet and transcript scan found no visible or audible private paths, credentials, account data, contact details, or personal identifiers. The automated full-video analysis backend could not ingest the local file, so the disclosure review used sampled-frame inspection plus exact-audio transcription rather than that backend.
+
+## Deterministic Muted Manim Overview
+
+Reproducible public source:
+
+```text
+video/vibes_to_verified.py
+```
+
+Render with Manim Community 0.20.1 and FFmpeg:
 
 ```bash
 python -m manim -ql --disable_caching video/vibes_to_verified.py VibesToVerified
 ```
 
-The scene itself pins the production dimensions and frame rate. Manim writes its normal intermediate tree under `media/videos/`; the verified final export is committed at:
+Verified export:
 
 ```text
 media/exports/vibes-to-verified-vertical.mp4
 ```
 
-## QA
+Properties:
 
-The final export was checked with `ffprobe`, sampled into a contact sheet, inspected frame by frame, and reviewed as a complete muted video. The full-motion review returned PASS with no blocking visual defect.
+- H.264
+- 1080 × 1920
+- 30 fps
+- 28.664 seconds
+- Muted
+
+The scene pins production dimensions and frame rate. Manim writes intermediates under `media/videos/`, which remains excluded from the release.
 
 See [`plan.md`](plan.md) for the narrative and acceptance criteria.

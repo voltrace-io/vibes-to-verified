@@ -22,6 +22,10 @@ A private-scope review progression moves from RED to RED to GREEN. Reported priv
 
 Vibes to Verified: make your agents prove it. The card shows a five-stage progression from V0 Vibes through V4 Operational and the line “keep the speed. add the proof.”
 
-## Vertical Video
+## Narrated Motion Launch Cut
+
+A 28.665-second vertical cosmic motion film. Sixty-four agents share one blind spot before the composition separates into independent routes. Claims face evidence, weak conclusions break, and authority progresses through grounded, tested, challenged, and operational states. It closes with: “Vibes to Verified. Move fast. Prove what works. Ship what survives.”
+
+## Deterministic Muted Vertical Video
 
 A 28.664-second muted animation. Sixty-four agent nodes converge on one fractured answer. The workflow then separates into five independent roles, records approaches, refutes weak claims, presents the five-level V2V scale, and closes with “Vibes to Verified. make your agents prove it. keep the speed. add the proof.”

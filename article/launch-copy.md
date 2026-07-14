@@ -22,7 +22,7 @@ keep the speed. add the proof.
 
 **Evidence tier:** tested, not proven
 
-**Why now:** the opportunity is to move past criticism and give builders a usable path to proof.
+**Why now:** the opportunity is to move past criticism and give builders a usable path to stronger, inspectable evidence.
 
 ## First Reply — Repository
 

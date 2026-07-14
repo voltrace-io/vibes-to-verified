@@ -45,6 +45,7 @@ REQUIRED_PATHS = [
     "media/exports/v2v-scale.png",
     "media/exports/v2v-workflow.png",
     "media/exports/paper-trading-receipt.png",
+    "media/exports/vibes-to-verified-launch-v4.mp4",
     "media/exports/vibes-to-verified-vertical.mp4",
     "scripts/build_release_manifest.py",
     "release/manifest.json",
@@ -239,8 +240,8 @@ def validate_package() -> list[str]:
 
     try:
         frontmatter = parse_skill_frontmatter(ROOT / "SKILL.md")
-        if frontmatter.get("name") != "vibes-to-verified":
-            errors.append("SKILL.md name must be vibes-to-verified")
+        if frontmatter.get("name") != "v2v":
+            errors.append("SKILL.md name must be v2v")
     except Exception as exc:  # validation should report every failure together
         errors.append(str(exc))
 

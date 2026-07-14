@@ -52,6 +52,17 @@ Pre-freeze review findings have been repaired. The final manifest-bound candidat
 | `files_scanned` telemetry implied unsupported binaries were semantically inspected | Accepted | CLI telemetry now reports `files_enumerated`; documentation separately names supported text and media inspection. |
 | A publication-gate test embedded the planned repository destination as its sentinel | Accepted | The test now rejects generic hard-coded GitHub repository URLs in publication-facing files while retaining placeholder checks; no unpublished destination is stored in source. |
 
+## `/v2v` Rename and Launch-Cut Review
+
+| Finding | Disposition | Repair or rationale |
+|---|---|---|
+| The installed `/v2v` skill differed from the manifest-bound candidate | Accepted | The short command identifier, validator, tests, installation paths, and documentation are now included in the staged candidate before manifest rebuild. |
+| README and approval text still said Hermes live invocation was unclaimed | Accepted | Public copy now records one scoped Telegram-gateway `/v2v` invocation after `/reload-skills` while keeping Claude Code live execution and general compatibility unclaimed. |
+| Claude's documented folder path would expose the old long command | Accepted | Claude and Hermes installation paths now both use the `v2v` directory slug. |
+| V3/V4 production sources and QC files exposed private workspace structure and broke the full-directory Ruff command | Accepted | Production sources, QC records, and review intermediates remain under `.private/`; `video/reviews/` is ignored. Only the final V4 MP4 is promoted publicly. |
+| The V4 launch asset was not manifest-bound or documented | Accepted | The exact MP4 is promoted to `media/exports/vibes-to-verified-launch-v4.mp4`, required by the validator, contract-tested, probed by the manifest, and documented with provenance and accessibility text. |
+| Full-playback disclosure review backend could not ingest the local V4 file | Partially mitigated | Technical decode and black/freeze/silence checks passed; a 2 fps chronological contact sheet and exact-audio transcript were independently inspected for visible/audible disclosure. The backend ingestion limitation remains disclosed. |
+
 ## Remaining Gate
 
 A fresh reviewer must inspect the exact manifest-bound candidate. Publication remains unauthorized until that review passes and the user separately approves each public gate.

@@ -2,9 +2,9 @@
 
 ## Status
 
-**YELLOW — repaired local candidate, not published**
+**YELLOW — repaired `/v2v` working candidate, not published**
 
-All deterministic checks pass. Prior independent-review findings are repaired and regression-covered. A fresh review of the exact manifest-bound candidate is still pending. No public action is authorized by this file.
+The direct `/v2v` invocation, tracked package, and narrated V4 launch asset have been exercised locally. The latest independent review found the pre-repair candidate unbound and editorially stale; those findings are being repaired. A fresh review of the exact post-repair commit is still required. No public action is authorized by this file.
 
 ## Candidate
 
@@ -14,16 +14,16 @@ All deterministic checks pass. Prior independent-review findings are repaired an
 - Manifest: [`manifest.json`](manifest.json)
 - Review dispositions: [`reviews/review-dispositions.md`](reviews/review-dispositions.md)
 - Manifest status: `local_candidate_not_published`
-- Tracked files: 50
-- Files bound by SHA-256 after manifest rebuild: 49 of 50; the manifest excludes only itself to avoid a self-hash cycle
+- Intended tracked files after manifest rebuild: 51
+- Files bound by SHA-256 after manifest rebuild: 50 of 51; the manifest excludes only itself to avoid a self-hash cycle
 
 ## Verification Receipts
 
 | Gate | Result |
 |---|---|
-| Required artifact validator | PASS — 37 required files |
+| Required artifact validator | PASS — 38 required files |
 | Contract tests | PASS — 53/53 against the manifest-bound candidate |
-| Privacy scan | PASS — 50 tracked files enumerated; supported text and media metadata inspected |
+| Privacy scan | PASS — 51 tracked files enumerated; supported text and media metadata inspected |
 | Ruff static analysis | PASS |
 | Python compilation | PASS |
 | Staged Git whitespace check | PASS |
@@ -33,14 +33,14 @@ All deterministic checks pass. Prior independent-review findings are repaired an
 | GPT Image source metadata | PASS — pixel content preserved; `caBX`, EXIF, and PNG info removed |
 | MP4 contract | PASS |
 | Clean Claude-style directory layout | PASS — copy validation only; live discovery unclaimed |
-| Clean Hermes-style directory layout | PASS — copy validation only; live discovery unclaimed |
-| Full-motion video review | PASS — no blocking visual defect |
+| Hermes direct skill invocation | PASS — one scoped `/v2v` invocation in the active Telegram gateway after `/reload-skills` |
+| Narrated V4 launch video | PASS — decode, stream contract, black/freeze/silence checks, sampled-frame disclosure review, and exact-audio transcript scan; automated full-video backend ingestion remained unavailable |
 | Prior skill/schema review findings | REPAIRED — regression-covered |
 | Prior privacy/disclosure review findings | REPAIRED — scanner and public scope narrowed |
 | Prior source/editorial review findings | REPAIRED — source and private-case claims recalibrated |
-| Fresh manifest-bound contract review | PENDING |
-| Fresh manifest-bound privacy review | PENDING |
-| Fresh manifest-bound source/editorial review | PENDING |
+| Fresh post-repair manifest-bound contract review | PENDING |
+| Fresh post-repair manifest-bound privacy review | PENDING |
+| Fresh post-repair source/editorial review | PENDING |
 
 ## Scope
 
@@ -54,7 +54,8 @@ The package includes:
 - complete draft X Article and launch copy
 - deterministic diagrams
 - metadata-sanitized GPT Image 2 conceptual source with deterministic typography
-- native vertical Manim video
+- native muted vertical Manim overview
+- narrated moving-background V4 launch cut with private production sources excluded
 - sanitized options PAPER-trading case whose private-V4 claim is public `BLOCKED / V0`
 
 ## Public Gates

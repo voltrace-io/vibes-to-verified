@@ -43,8 +43,8 @@ PATTERNS = {
 }
 
 ALLOWED_LITERAL_PATHS = {
-    ".claude/skills/vibes-to-verified",
-    "~/.hermes/skills/vibes-to-verified",
+    ".claude/skills/v2v",
+    "~/.hermes/skills/v2v",
 }
 PNG_METADATA_CHUNKS = {b"caBX", b"eXIf"}
 

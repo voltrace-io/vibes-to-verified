@@ -41,7 +41,7 @@ class PackageContractTests(unittest.TestCase):
 
     def test_skill_frontmatter(self):
         frontmatter = validate.parse_skill_frontmatter(ROOT / "SKILL.md")
-        self.assertEqual(frontmatter["name"], "vibes-to-verified")
+        self.assertEqual(frontmatter["name"], "v2v")
         self.assertLessEqual(len(frontmatter["description"]), 1024)
 
     def test_template_matches_schema(self):
@@ -651,27 +651,39 @@ class PackageContractTests(unittest.TestCase):
         self.assertEqual(manifested, tracked - {"release/manifest.json"})
 
     def test_video_export_contract(self):
-        path = ROOT / "media" / "exports" / "vibes-to-verified-vertical.mp4"
-        output = subprocess.check_output(
-            [
-                "ffprobe",
-                "-v",
-                "error",
-                "-show_entries",
-                "format=duration,size:stream=codec_name,width,height,r_frame_rate",
-                "-of",
-                "json",
-                str(path),
-            ],
-            text=True,
-        )
-        payload = json.loads(output)
-        stream = payload["streams"][0]
-        self.assertEqual(stream["codec_name"], "h264")
-        self.assertEqual((stream["width"], stream["height"]), (1080, 1920))
-        self.assertEqual(stream["r_frame_rate"], "30/1")
-        self.assertGreater(float(payload["format"]["duration"]), 20.0)
-        self.assertGreater(int(payload["format"]["size"]), 0)
+        expected = {
+            "vibes-to-verified-vertical.mp4": False,
+            "vibes-to-verified-launch-v4.mp4": True,
+        }
+        for name, requires_audio in expected.items():
+            path = ROOT / "media" / "exports" / name
+            output = subprocess.check_output(
+                [
+                    "ffprobe",
+                    "-v",
+                    "error",
+                    "-show_entries",
+                    "format=duration,size:stream=codec_name,width,height,r_frame_rate,sample_rate,channels",
+                    "-of",
+                    "json",
+                    str(path),
+                ],
+                text=True,
+            )
+            payload = json.loads(output)
+            video = next(stream for stream in payload["streams"] if stream["codec_name"] == "h264")
+            audio = [stream for stream in payload["streams"] if stream["codec_name"] == "aac"]
+            with self.subTest(path=name):
+                self.assertEqual((video["width"], video["height"]), (1080, 1920))
+                self.assertEqual(video["r_frame_rate"], "30/1")
+                self.assertGreater(float(payload["format"]["duration"]), 20.0)
+                self.assertGreater(int(payload["format"]["size"]), 0)
+                if requires_audio:
+                    self.assertEqual(len(audio), 1)
+                    self.assertEqual(audio[0]["sample_rate"], "48000")
+                    self.assertEqual(audio[0]["channels"], 2)
+                else:
+                    self.assertEqual(audio, [])
 
     def test_privacy_scan_detects_normal_windows_paths(self):
         with tempfile.TemporaryDirectory() as tmp:

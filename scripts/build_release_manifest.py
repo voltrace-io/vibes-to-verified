@@ -74,14 +74,16 @@ def main() -> None:
             }
         )
 
-    video_path = ROOT / "media" / "exports" / "vibes-to-verified-vertical.mp4"
+    muted_video_path = ROOT / "media" / "exports" / "vibes-to-verified-vertical.mp4"
+    launch_video_path = ROOT / "media" / "exports" / "vibes-to-verified-launch-v4.mp4"
     manifest = {
         "project": "vibes-to-verified",
         "version": "0.1.0-rc1",
         "status": "local_candidate_not_published",
         "generated_on": datetime.now(timezone.utc).date().isoformat(),
         "artifacts": artifacts,
-        "video_probe": video_probe(video_path),
+        "video_probe": video_probe(muted_video_path),
+        "launch_video_probe": video_probe(launch_video_path),
         "verification_commands": [
             "python scripts/validate.py",
             "python -m unittest discover -s tests -v",

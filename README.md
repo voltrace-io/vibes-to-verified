@@ -46,20 +46,20 @@ A confident answer can be `GREEN / V0`. A rigorously reproduced failure can be `
 6. Reproduces failures and requires regression evidence.
 7. Separates verdict from evidence maturity.
 8. Produces a machine-readable evidence card.
-9. Protects private implementation details in public case studies.
+9. Provides disclosure-boundary guidance for excluding private implementation details from public case studies.
 
 ## 29-Second Visual Walkthrough
 
-[Watch the muted vertical Manim overview](media/exports/vibes-to-verified-vertical.mp4).
+[Watch the narrated motion launch cut](media/exports/vibes-to-verified-launch-v4.mp4).
 
-The source scene and production plan are included under [`video/`](video/).
+A separate [muted deterministic Manim overview](media/exports/vibes-to-verified-vertical.mp4), its source scene, and production plan are included under [`video/`](video/). The launch cut uses locally generated moving visual plates, authored typography, the creator's narration, and a rights-cleared music track; private production assets are not part of the public package.
 
 ## Quick Start
 
 ### Claude Code project skill
 
 ```bash
-git clone {{REPOSITORY_URL}} .claude/skills/vibes-to-verified
+git clone {{REPOSITORY_URL}} .claude/skills/v2v
 ```
 
 Claude Code discovers project skills from `.claude/skills/*/SKILL.md`.
@@ -67,10 +67,19 @@ Claude Code discovers project skills from `.claude/skills/*/SKILL.md`.
 ### Hermes Agent user skill
 
 ```bash
-git clone {{REPOSITORY_URL}} ~/.hermes/skills/vibes-to-verified
+git clone {{REPOSITORY_URL}} ~/.hermes/skills/v2v
 ```
 
-Start a new Hermes session after installation so the skill index refreshes.
+Run `/reload-skills` after installation, or start a new Hermes session, so the skill index refreshes.
+
+Invoke it directly with the short V2V command:
+
+```text
+/v2v verify this release candidate and return an evidence card
+```
+
+The package and public title remain **Vibes to Verified**; `v2v` is the
+command-facing skill identifier.
 
 ### Other agents
 
@@ -80,7 +89,7 @@ Expose `SKILL.md` and its `references/`, `templates/`, and `schemas/` directorie
 Run Vibes to Verified on this claim and return an evidence card.
 ```
 
-The package has passed clean-copy validation in both directory layouts. Live skill discovery and execution have not yet been exercised on either platform, so runtime compatibility remains unclaimed.
+Clean-copy validation passed in both layouts. Hermes discovery and direct `/v2v` invocation were exercised once in the active Telegram gateway after `/reload-skills`; Claude Code live discovery and execution remain untested. This does not establish general runtime compatibility.
 
 ## Example Output
 
