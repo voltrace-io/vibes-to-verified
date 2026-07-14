@@ -227,6 +227,19 @@ Maximum default cycle count: two repair cycles after the initial refutation roun
 
 A successful POST, click, exit code, or self-report is not enough when public/read-back verification is possible.
 
+### Skill-package and slash-command releases
+
+When the subject is an Agent Skill release, do not collapse the Git commit, staged index, working tree, installed copy, manifest, and public media bundle into one “candidate.” Bind and test each boundary explicitly.
+
+- Direct slash discovery is platform-specific. Hermes derives skill commands from frontmatter; Claude Code may derive them from the skill directory slug. Align both when promising one branded command.
+- `skill_view` or a resolver scan proves discoverability, not a natural slash invocation. Retain the literal command, gateway read-back, installed skill hash, platform, and exact commit.
+- Build manifests from staged blobs only after deciding what is public versus private.
+- Keep production sources, QC files, voice references, keyframes, and generated intermediates private unless deliberately sanitized and approved.
+- Promote public media with hash, decode, stream, privacy, transcript/frame, provenance, accessibility, contract-test, and manifest evidence.
+- After repairing an adversarial finding, freeze the candidate and send the new exact commit to fresh reviewers; prior approval is stale.
+
+See [`references/hermes-natural-path-verification.md`](references/hermes-natural-path-verification.md) for the focused Hermes runtime boundary and [`references/skill-release-and-slash-command-verification.md`](references/skill-release-and-slash-command-verification.md) for the cross-platform command matrix, exact-candidate sequence, and media-promotion checklist.
+
 ### Step 8: Issue the Evidence Card
 
 Use `templates/evidence-card.yaml` and validate it against `schemas/evidence-card.schema.json` when tooling permits.
@@ -321,6 +334,14 @@ Before publishing a case study:
 - state what was not independently verified
 
 Use `disclosure_boundary` in every public evidence card.
+
+### Immutable Editorial and Source Reviews
+
+For documentation-heavy release candidates, review the exact commit rather than the mutable working tree. Independently challenge source quotations, naming and command-resolution rules, runtime scope, media rights and license compatibility, intentional placeholders, gate ordering, and stale approval language. A disposition saying an issue was repaired is not evidence that the final bytes contain the repair.
+
+Treat categorical media claims such as “rights-cleared” as provenance claims: require a traceable receipt or qualify them as privately reported, and verify that embedded third-party media is actually redistributable under—or explicitly carved out from—the repository license. Return exact `path:line` counter-evidence and the smallest sufficient repair.
+
+See [`references/editorial-source-release-review.md`](references/editorial-source-release-review.md) for the full immutable-release checklist, source retrieval fallbacks, and verdict rules.
 
 ## Verification Checklist
 

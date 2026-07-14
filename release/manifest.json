@@ -36,8 +36,8 @@
     },
     {
       "path": "README.md",
-      "size_bytes": 7709,
-      "sha256": "4ea335be730e94b4be15acc38456b47a55a38ee9300142e6a4bc360e6dc170be"
+      "size_bytes": 8134,
+      "sha256": "b2fb56321c12bad92aea55cbc86457f08ccd0a1a7263c5d42a08c46a3da2c733"
     },
     {
       "path": "SECURITY.md",
@@ -46,8 +46,8 @@
     },
     {
       "path": "SKILL.md",
-      "size_bytes": 13797,
-      "sha256": "76b4dd51dd65f2adfb6c0fbfd2e00551d59b6e289da625ae2618419be569ec0a"
+      "size_bytes": 16343,
+      "sha256": "bdd9898bb086534f92581f86953cb506956de1e4c8fa0bc4b96a7d7df1c87d35"
     },
     {
       "path": "SOURCES.md",
@@ -66,8 +66,8 @@
     },
     {
       "path": "article/media-map.md",
-      "size_bytes": 3477,
-      "sha256": "01dff2dc6db5aa736370cb4bb476897d158eae37c2ba6bcbd52fe391e6748ae5"
+      "size_bytes": 3682,
+      "sha256": "e61ddce197f7e29a3cb47ba2b6e06404ef55622737bf3a168ad271c2d7e42c93"
     },
     {
       "path": "examples/coding-agent.md",
@@ -93,6 +93,11 @@
       "path": "media/ALT_TEXT.md",
       "size_bytes": 2335,
       "sha256": "b2e2b4e98eaa066c8b57d4dbd27e246b9627ac876e054fa125eac2d6617dab15"
+    },
+    {
+      "path": "media/RIGHTS.md",
+      "size_bytes": 1481,
+      "sha256": "f9d3c2c999f2cc6df90bdd7f5fcb0196e3ed8b6be195027a13f4f14c2d48d691"
     },
     {
       "path": "media/compose_hero.py",
@@ -175,6 +180,21 @@
       "sha256": "b3f905887a6286e1f67f73e392588d95bf5879558643e11c36f1d8f9db1a7616"
     },
     {
+      "path": "references/editorial-source-release-review.md",
+      "size_bytes": 3507,
+      "sha256": "4874f28014894d33423d687991ac79a44e211aeafaba23beba2b65519d8b63e0"
+    },
+    {
+      "path": "references/hermes-natural-path-verification.md",
+      "size_bytes": 3069,
+      "sha256": "fba1299a554ba07cd94f07bd423f6a91437b3e5ffa22842dfe693068c5576536"
+    },
+    {
+      "path": "references/skill-release-and-slash-command-verification.md",
+      "size_bytes": 3617,
+      "sha256": "59dd41cbfaf86780176652106bab3e0b2776f53c4fff593cc54815879a421a8a"
+    },
+    {
       "path": "references/v2v-scale.md",
       "size_bytes": 3360,
       "sha256": "81704402cd896450d74f534cc1aef852eb040ecffbc9d5357cc6a4f574569da2"
@@ -186,13 +206,13 @@
     },
     {
       "path": "release/APPROVAL.md",
-      "size_bytes": 4220,
-      "sha256": "9f309b5f6488e1d28c12c0b3270528362825ddb20967d050d2ce48776a3d883f"
+      "size_bytes": 4233,
+      "sha256": "6462e7d1632a568da92bddff97613b017f327c5dedd8c390cb55188dc9511ff5"
     },
     {
       "path": "release/reviews/review-dispositions.md",
-      "size_bytes": 7620,
-      "sha256": "a7e48fffa8d8d71f3db0f78f27e80a9595979980f635dbff7e05a23346378a10"
+      "size_bytes": 8172,
+      "sha256": "d065b2cbc70bcfaba63a26cb90530b276a272e4da4f1fa4ca6f93bdeb4fb3ef3"
     },
     {
       "path": "requirements-dev.txt",
@@ -216,8 +236,8 @@
     },
     {
       "path": "scripts/validate.py",
-      "size_bytes": 10795,
-      "sha256": "9d3d14b3a741eb49ffef09e85b6db1e95626bbca363de2574662de337925ba5b"
+      "size_bytes": 10991,
+      "sha256": "4ddc64819328f59cadacd49e746dd7812d4df30d994d9cc2ac703bb0c2086dc6"
     },
     {
       "path": "templates/approach-registry.md",
@@ -241,8 +261,8 @@
     },
     {
       "path": "video/README.md",
-      "size_bytes": 1786,
-      "sha256": "fd3aa78693d7eac1555d0ffbec91e678230ca957f87fac2f83344df0196f9d5d"
+      "size_bytes": 2028,
+      "sha256": "20cb4672fd88e347a00398c7210866dfc881d299b9b83a2364f9f970538e988f"
     },
     {
       "path": "video/plan.md",

@@ -18,7 +18,7 @@ Verified properties:
 - 28.665 seconds
 - SHA-256: `f067ebb462e545d4a4bad3750cc098cc639258d189085e7fa8c6a5f30a76150e`
 
-The launch cut combines locally generated text-free LTX-2.3 motion plates, authored typography and diagrams, the creator's narration, and a rights-cleared music track. The public package includes the final rendered artifact, not the private voice reference, generated plates, keyframes, or production workspace.
+The launch cut combines locally generated text-free LTX-2.3 motion plates, authored typography and diagrams, the creator's narration, and a music track the creator reports as cleared for this publication. The private rights receipt is withheld. Embedded narration and music are excluded from the repository's MIT grant and are not licensed for standalone reuse; see [`../media/RIGHTS.md`](../media/RIGHTS.md). The public package includes the final rendered artifact, not the private voice reference, generated plates, keyframes, or production workspace.
 
 Technical QC established a complete decode, no detected black/frozen/silent intervals, and exact AAC packet-hash equality with the approved audio master. A 2 fps disclosure contact sheet and transcript scan found no visible or audible private paths, credentials, account data, contact details, or personal identifiers. The automated full-video analysis backend could not ingest the local file, so the disclosure review used sampled-frame inspection plus exact-audio transcription rather than that backend.
 

@@ -52,7 +52,7 @@ A confident answer can be `GREEN / V0`. A rigorously reproduced failure can be `
 
 [Watch the narrated motion launch cut](media/exports/vibes-to-verified-launch-v4.mp4).
 
-A separate [muted deterministic Manim overview](media/exports/vibes-to-verified-vertical.mp4), its source scene, and production plan are included under [`video/`](video/). The launch cut uses locally generated moving visual plates, authored typography, the creator's narration, and a rights-cleared music track; private production assets are not part of the public package.
+A separate [muted deterministic Manim overview](media/exports/vibes-to-verified-vertical.mp4), its source scene, and production plan are included under [`video/`](video/). The launch cut uses locally generated moving visual plates, authored typography, the creator's narration, and a music track the creator reports as cleared for this publication; the private rights receipt and production assets are not part of the public package. See [`media/RIGHTS.md`](media/RIGHTS.md).
 
 ## Quick Start
 
@@ -185,4 +185,4 @@ The multi-agent search design was inspired in part by the OpenAI prompt linked i
 
 ## License
 
-MIT. See [`LICENSE`](LICENSE).
+Code, documentation, deterministic graphics, and the muted Manim overview are MIT licensed. Embedded narration and music in the rendered V4 launch video are excluded from that grant and are distributed only as part of the complete render under the creator's reported publication rights. See [`LICENSE`](LICENSE) and [`media/RIGHTS.md`](media/RIGHTS.md).

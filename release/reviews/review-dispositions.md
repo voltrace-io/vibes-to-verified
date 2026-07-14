@@ -62,6 +62,8 @@ Pre-freeze review findings have been repaired. The final manifest-bound candidat
 | V3/V4 production sources and QC files exposed private workspace structure and broke the full-directory Ruff command | Accepted | Production sources, QC records, and review intermediates remain under `.private/`; `video/reviews/` is ignored. Only the final V4 MP4 is promoted publicly. |
 | The V4 launch asset was not manifest-bound or documented | Accepted | The exact MP4 is promoted to `media/exports/vibes-to-verified-launch-v4.mp4`, required by the validator, contract-tested, probed by the manifest, and documented with provenance and accessibility text. |
 | Full-playback disclosure review backend could not ingest the local V4 file | Partially mitigated | Technical decode and black/freeze/silence checks passed; a 2 fps chronological contact sheet and exact-audio transcript were independently inspected for visible/audible disclosure. The backend ingestion limitation remains disclosed. |
+| “Rights-cleared” wording lacked a public redistribution/license boundary | Accepted | Public copy now qualifies the creator's publication-rights report, withholds the private receipt, identifies the Suno track in `media/RIGHTS.md`, and excludes embedded narration/music from standalone MIT reuse. |
+| Exact skill-release lessons existed only as installed-copy drift | Accepted | The slash-command, candidate-boundary, media-promotion, and immutable-editorial procedures are now included deliberately in `SKILL.md` and three tracked references. |
 
 ## Remaining Gate
 

@@ -4,7 +4,7 @@
 
 **YELLOW — repaired `/v2v` working candidate, not published**
 
-The direct `/v2v` invocation, tracked package, and narrated V4 launch asset have been exercised locally. The latest independent review found the pre-repair candidate unbound and editorially stale; those findings are being repaired. A fresh review of the exact post-repair commit is still required. No public action is authorized by this file.
+The direct `/v2v` invocation, tracked package, and narrated V4 launch asset have been exercised locally. The latest independent review found the pre-repair candidate unbound and editorially stale; those findings were repaired in this candidate. A fresh review of the exact post-repair commit is still required. No public action is authorized by this file.
 
 ## Candidate
 
@@ -14,16 +14,16 @@ The direct `/v2v` invocation, tracked package, and narrated V4 launch asset have
 - Manifest: [`manifest.json`](manifest.json)
 - Review dispositions: [`reviews/review-dispositions.md`](reviews/review-dispositions.md)
 - Manifest status: `local_candidate_not_published`
-- Intended tracked files after manifest rebuild: 51
-- Files bound by SHA-256 after manifest rebuild: 50 of 51; the manifest excludes only itself to avoid a self-hash cycle
+- Intended tracked files after manifest rebuild: 55
+- Files bound by SHA-256 after manifest rebuild: 54 of 55; the manifest excludes only itself to avoid a self-hash cycle
 
 ## Verification Receipts
 
 | Gate | Result |
 |---|---|
-| Required artifact validator | PASS — 38 required files |
+| Required artifact validator | PASS — 42 required files |
 | Contract tests | PASS — 53/53 against the manifest-bound candidate |
-| Privacy scan | PASS — 51 tracked files enumerated; supported text and media metadata inspected |
+| Privacy scan | PASS — 55 tracked files enumerated; supported text and media metadata inspected |
 | Ruff static analysis | PASS |
 | Python compilation | PASS |
 | Staged Git whitespace check | PASS |
