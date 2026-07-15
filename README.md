@@ -59,18 +59,45 @@ A separate [muted deterministic Manim overview](media/exports/vibes-to-verified-
 ### Claude Code project skill
 
 ```bash
-git clone https://github.com/voltrace-io/vibes-to-verified.git .claude/skills/v2v
+git clone --branch v0.1.0 --depth 1 https://github.com/voltrace-io/vibes-to-verified.git .claude/skills/v2v
 ```
 
 Claude Code discovers project skills from `.claude/skills/*/SKILL.md`.
 
 ### Hermes Agent user skill
 
-```bash
-git clone https://github.com/voltrace-io/vibes-to-verified.git ~/.hermes/skills/v2v
+Windows PowerShell:
+
+```powershell
+$hermesHome = if ($env:HERMES_HOME) {
+    [IO.Path]::GetFullPath($env:HERMES_HOME)
+} else {
+    Join-Path ([Environment]::GetFolderPath("LocalApplicationData")) "hermes"
+}
+$skillsRoot = Join-Path $hermesHome "skills"
+New-Item -ItemType Directory -Force $skillsRoot | Out-Null
+git clone --branch v0.1.0 --depth 1 https://github.com/voltrace-io/vibes-to-verified.git (Join-Path $skillsRoot "v2v")
 ```
 
-Run `/reload-skills` after installation, or start a new Hermes session, so the skill index refreshes.
+The fallback is the current Windows user's local AppData Hermes directory. If
+your Hermes installation uses a different home, set `HERMES_HOME` before
+running the command.
+
+macOS/Linux Bash:
+
+```bash
+hermes_home="${HERMES_HOME:-$HOME/.hermes}"
+mkdir -p "$hermes_home/skills"
+git clone --branch v0.1.0 --depth 1 https://github.com/voltrace-io/vibes-to-verified.git "$hermes_home/skills/v2v"
+```
+
+These commands pin the stable release. To follow the changing `main` branch,
+omit `--branch v0.1.0 --depth 1`.
+
+In a Hermes terminal or gateway that exposes `/reload-skills`, run it after
+installation. Hermes Desktop did not expose that command in its slash palette
+during the release check; start a new Desktop session or restart Desktop so its
+skill index refreshes.
 
 Invoke it directly with the short V2V command:
 
@@ -89,7 +116,13 @@ Expose `SKILL.md` and its `references/`, `templates/`, and `schemas/` directorie
 Run Vibes to Verified on this claim and return an evidence card.
 ```
 
-Clean-copy validation passed in both layouts. The current Hermes installation discovers `/v2v` and resolves it to the installed V2V skill. One direct invocation was exercised before the final package hardening, so it does **not** establish natural-path execution for this exact release candidate. Exact-candidate invocation and Claude Code live discovery and execution remain untested.
+Clean-copy validation passed in both layouts. On 2026-07-15, a literal `/v2v`
+invocation in Hermes Desktop loaded the installed V2V skill through Hermes'
+slash dispatcher. The installed repository was clean at `a88ecf9`, and its
+`SKILL.md` SHA-256 (`0370fd3c0315e3d309914d47114df4390eaa4b18d68b5a7c8655caeab9127e7d`)
+matches the skill body in this release candidate. That receipt establishes the
+Desktop dispatch path for those skill bytes; it does not establish Claude Code
+live discovery or execution.
 
 ## Example Output
 
@@ -173,7 +206,14 @@ See [`examples/options-paper-trading-risk-control.md`](examples/options-paper-tr
 
 ## Status
 
-`v0.1.0` is the initial public specification candidate. It must pass its own validation, privacy review, independent adversarial review, and final artifact check before release.
+`v0.1.0` is the initial public release. Its manifest binds every tracked
+artifact except the self-referential manifest itself, and the release process
+requires contract tests, privacy scanning, static analysis, compilation,
+full-history secret scanning, independent review, and public CI read-back.
+
+The repository launch post is published and was read back through X API v2:
+<https://x.com/VoltraceGG/status/2077436347292271041>. The longer X Article and
+its separate Article-launch bundle remain unpublished.
 
 ## Contributing
 

@@ -78,8 +78,9 @@ def main() -> None:
     launch_video_path = ROOT / "media" / "exports" / "vibes-to-verified-launch-cut-r1.mp4"
     manifest = {
         "project": "vibes-to-verified",
-        "version": "0.1.0-rc1",
-        "status": "local_candidate_not_published",
+        "repository_url": "https://github.com/voltrace-io/vibes-to-verified",
+        "version": "0.1.0",
+        "status": "release_candidate",
         "generated_on": datetime.now(timezone.utc).date().isoformat(),
         "artifacts": artifacts,
         "video_probe": video_probe(muted_video_path),
@@ -88,17 +89,40 @@ def main() -> None:
             "python scripts/validate.py",
             "python -m unittest discover -s tests -v",
             "python scripts/privacy_scan.py",
+            "python -m compileall -q scripts media video tests",
             "ruff check scripts media video tests",
+            "gitleaks git --redact --verbose --log-opts=--all .",
             "git diff --cached --check",
         ],
+        "security_scan": {
+            "tool": "gitleaks",
+            "version": "8.30.1",
+            "scope": "all_reachable_commits",
+            "asset_sha256": "551f6fc83ea457d62a0d98237cbad105af8d557003051f41f3e7ca7b3f2470eb",
+        },
         "publication_gates": {
-            "public_github_repository": "not_approved",
-            "x_article": "not_approved",
-            "x_launch_post_and_replies": "not_approved",
+            "public_github_repository": "published_verified",
+            "github_release_v0_1_0": "approved_pending_creation",
+            "x_article_and_launch_bundle": "not_published",
+            "x_repository_launch_post": "published_verified",
+        },
+        "publication_receipts": {
+            "x_repository_launch_post": {
+                "status": "published_verified",
+                "url": "https://x.com/VoltraceGG/status/2077436347292271041",
+                "post_id": "2077436347292271041",
+                "author_username": "VoltraceGG",
+                "readback_source": "X API v2",
+                "verified_on": "2026-07-15",
+            },
         },
     }
     OUTPUT.parent.mkdir(parents=True, exist_ok=True)
-    OUTPUT.write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
+    OUTPUT.write_text(
+        json.dumps(manifest, indent=2) + "\n",
+        encoding="utf-8",
+        newline="\n",
+    )
     print(f"wrote {OUTPUT} {OUTPUT.stat().st_size} bytes")
 
 

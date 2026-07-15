@@ -1,88 +1,97 @@
-# Vibes to Verified — Release Approval Card
+# Vibes to Verified - v0.1.0 Freeze and Release Receipt
 
 ## Status
 
-**GREEN / V3 — substantive candidate passed all three independent review lanes; not published**
+**AUTHORIZED RELEASE CANDIDATE - GitHub release approved; repository launch post published and verified**
 
-The manifest-bound substantive candidate at commit `40c2264b851c9d92f1f60a204a0bdb44468f88c9`, tree `b6c6794e39922b436f2676cc8d2e5c5b966d1adf`, received GREEN contract/runtime, GREEN bounded privacy/disclosure, and GREEN / V3 editorial/source verdicts. This receipt-only successor changes review-state documentation and manifest bindings; it still requires a narrow exact-diff review before reliance. No public action is authorized by this file.
+This dated receipt records the release authorization and evidence boundary for
+`v0.1.0`. The controlling launch workflow authorized the exact candidate to be
+tagged and published as a GitHub release after its required validation, fresh
+review, and public CI gates pass. This authorization does not extend to the
+draft X Article or its separate Article-launch post and replies.
 
-## Candidate
+## Candidate Snapshot
 
 - Project: `vibes-to-verified`
-- Version: `0.1.0-rc1`
-- Workspace: local private repository
-- Substantive reviewed commit: `40c2264b851c9d92f1f60a204a0bdb44468f88c9`
-- Substantive reviewed tree: `b6c6794e39922b436f2676cc8d2e5c5b966d1adf`
+- Release target: `v0.1.0`
+- Public repository: <https://github.com/voltrace-io/vibes-to-verified>
+- Last public baseline before the release changes:
+  `a88ecf950f9a499c5715f1ef076c42d9fa17acde`
+- Baseline tree: `74136cf0ffb2162340ee46b0ff706a7c9afc2d0e`
 - Manifest: [`manifest.json`](manifest.json)
-- Review dispositions: [`reviews/review-dispositions.md`](reviews/review-dispositions.md)
-- Manifest status: `local_candidate_not_published`
-- Intended tracked files after manifest rebuild: 55
-- Files bound by SHA-256 after manifest rebuild: 54 of 55; the manifest excludes only itself to avoid a self-hash cycle
+- Manifest status: `release_candidate`
+- Manifest hashing rule: every tracked file except the manifest itself is bound
+  by SHA-256; excluding the manifest avoids a self-hash cycle
 
-## Verification Receipts
+The manifest value `approved_pending_creation` is a freeze-time authorization
+snapshot. The immutable tag, GitHub release URL, and successful CI run are the
+external read-back receipts after publication.
 
-| Gate | Result |
+## Verified Public State
+
+| Artifact | Receipt |
 |---|---|
-| Required artifact validator | PASS — 42 required files |
-| Contract tests | PASS — 54/54 against the manifest-bound candidate |
-| Privacy scan | PASS — 55 tracked files enumerated; supported text and media metadata inspected |
-| Ruff static analysis | PASS |
-| Python compilation | PASS |
-| Staged Git whitespace check | PASS |
-| Internal Markdown links | PASS |
-| SVG parsing | PASS |
-| PNG dimensions and metadata | PASS |
-| GPT Image source metadata | PASS — pixel content preserved; `caBX`, EXIF, and PNG info removed |
-| MP4 contract | PASS |
-| Clean Claude-style directory layout | PASS — copy validation only; live discovery unclaimed |
-| Hermes command path | PARTIAL — live discovery and resolver mapping pass for the currently installed skill; the installed package differs from this candidate, and exact-candidate natural invocation remains unclaimed |
-| Narrated motion launch cut | PASS — neutral revision label; native-speed Comfy motion; full decode; zero freeze, black, and silence intervals; studio-mastered narration; sampled-frame inspection |
-| Prior skill/schema review findings | REPAIRED — regression-covered |
-| Prior privacy/disclosure review findings | REPAIRED — scanner and public scope narrowed |
-| Prior source/editorial review findings | REPAIRED — source and private-case claims recalibrated |
-| Fresh post-repair manifest-bound contract review | GREEN — no evidenced blocker at the exact substantive commit |
-| Fresh post-repair manifest-bound privacy review | GREEN — bounded offline review; sampled-frame semantics, not every-frame transcription or legal review |
-| Fresh post-repair source/editorial review | GREEN / V3 — no publication blocker at the exact substantive commit |
-| Receipt-only successor diff review | REQUIRED OUT-OF-BAND — must confirm that only review-state documentation and manifest bindings changed |
+| Source repository | Public and readable at the repository URL above |
+| Baseline `main` CI | Passed for `a88ecf9` before this release round |
+| Repository launch post | Published and verified: <https://x.com/VoltraceGG/status/2077436347292271041> |
+| X post read-back | X API v2 matched author `@VoltraceGG`, normalized approved copy, post ID, and one 720x1280 video |
+| X Article | Not published; remains a separate approval gate |
+| Article-launch post and replies | Not published; remain a separate approval gate |
 
-## Scope
+## Hermes Runtime Boundary
 
-The package includes:
+On 2026-07-15, a literal `/v2v` command was entered in Hermes Desktop. The UI
+showed `loading skill: v2v` and Hermes injected its skill-invocation message.
+Runtime inspection resolved `/v2v` to the installed V2V skill, identified the
+session source as `desktop`, and found the installed repository clean at
+`a88ecf9`. The installed `SKILL.md` SHA-256 is:
 
-- portable Agent Skill
-- V0–V4 evidence scale
-- independent approach and refutation workflow
-- evidence-card schema and semantic validator
-- contract and privacy tests
-- complete draft X Article and launch copy
-- deterministic diagrams
-- metadata-sanitized GPT Image 2 conceptual source with deterministic typography
-- native muted vertical Manim overview
-- narrated moving-background launch cut with private production sources excluded
-- sanitized options PAPER-trading case whose private-V4 claim is public `BLOCKED / V0`
+```text
+0370fd3c0315e3d309914d47114df4390eaa4b18d68b5a7c8655caeab9127e7d
+```
 
-## Public Gates
+That hash matches the skill body in this release candidate. The receipt proves
+Hermes Desktop slash dispatch for those bytes. It does not prove Claude Code
+live discovery or execution, and it does not generalize to every Hermes
+interface or configuration.
 
-| Public action | Current state |
+Hermes Desktop did not expose `/reload-skills` in its slash palette during this
+check. A terminal or gateway may expose it; Desktop users should start a new
+session or restart Desktop after installation.
+
+## Release Gates
+
+| Gate | Freeze-time disposition |
 |---|---|
-| Create a public GitHub repository | NOT APPROVED |
-| Push candidate and enable public CI | NOT APPROVED |
-| Publish X Article | NOT APPROVED |
-| Publish launch post and replies | NOT APPROVED |
+| Exact staged manifest | PASS for the substantive candidate; rebuild required after review-receipt append |
+| Required artifact validator | PASS |
+| Complete contract tests | PASS - 59 of 59 |
+| Privacy scan | PASS - all 57 tracked files enumerated |
+| Ruff and Python compilation | PASS |
+| Full-history Gitleaks scan | PASS locally across all 15 reachable commits; exact-commit public CI read-back pending |
+| Fresh contract/runtime review | GREEN for the substantive frozen candidate |
+| Fresh privacy/disclosure review | GREEN, within its documented bounded scope |
+| Fresh editorial/release review | GREEN; immutable tag link correction applied before the successor review |
+| Receipt-only successor review | Required after the manifest rebuild |
+| Exact-commit public CI read-back | Required before tag |
+| Create and push `v0.1.0` tag | GitHub release approved after all gates pass |
+| Create GitHub release | Approved for the exact verified tag |
+| Publish X Article | Not approved by this receipt |
+| Publish Article-launch post or replies | Not approved by this receipt |
 
-## Approval Sequence
+## Authorized Procedure
 
-1. Stage every tracked candidate change except `release/manifest.json`.
-2. Rebuild `release/manifest.json` from the staged Git blobs and stage it.
-3. Run the complete verification suite and require 54/54 tests.
-4. Commit the immutable candidate locally.
-5. Run fresh independent contract, privacy, and editorial reviews against that exact commit.
-6. Repair any blocker, rebuild the manifest, and repeat if required.
-7. Present the exact Article, launch post, replies, media, hashes, and commit.
-8. Request GitHub publication approval.
-9. Read back the public repository and CI result.
-10. Bind the verified repository and case-study URLs into the Article, present the exact Article candidate, and request X Article approval.
-11. Read back the Article URL.
-12. Bind the verified Article URL into the launch copy, show the final launch bundle, and request posting approval.
+1. Stage every intended candidate file except `release/manifest.json`.
+2. Build the manifest from the staged Git blobs, then stage the manifest.
+3. Run the validator, complete tests, privacy scan, compilation, Ruff, staged
+   whitespace check, and full-history secret scan.
+4. Obtain fresh independent contract/runtime, privacy/disclosure, and
+   editorial/release reviews against the frozen candidate.
+5. Commit and push the exact candidate, require successful public CI and
+   secret-scan read-back, and protect `main` with those required checks.
+6. Create a new annotated `v0.1.0` tag at that exact commit. Do not publish the
+   stale local release-candidate tag.
+7. Publish and read back the GitHub release for that tag.
 
-Failure or ambiguity at any stage keeps the next gate closed.
+Any failed or ambiguous gate stops tag and release creation. It does not
+authorize reposting the already-public X launch post.

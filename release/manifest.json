@@ -1,7 +1,8 @@
 {
   "project": "vibes-to-verified",
-  "version": "0.1.0-rc1",
-  "status": "local_candidate_not_published",
+  "repository_url": "https://github.com/voltrace-io/vibes-to-verified",
+  "version": "0.1.0",
+  "status": "release_candidate",
   "generated_on": "2026-07-15",
   "artifacts": [
     {
@@ -10,19 +11,29 @@
       "sha256": "3ada4c6b7ba44edbbde0fabb2ff939d902d58b23f6657833b244bdef83c3ee46"
     },
     {
+      "path": ".github/dependabot.yml",
+      "size_bytes": 402,
+      "sha256": "fc0b018f800c207512f7d27f887a005ed47dacec2bc6999b23c73b9a62243d50"
+    },
+    {
+      "path": ".github/workflows/gitleaks.yml",
+      "size_bytes": 1369,
+      "sha256": "04e6a310c198afc8f5e6270d73d19bb1fb8d76bf4586ec816d4d5e8cc5535ae7"
+    },
+    {
       "path": ".github/workflows/validate.yml",
-      "size_bytes": 1131,
-      "sha256": "ab2ccaf78f5c771a70be609e9be298007afbd955747bd2f29f9db5f2310c5980"
+      "size_bytes": 1225,
+      "sha256": "786a1d0e204f0449ee2d8f7897878246f1c4b1065f42c50a07f3a56c2f3e2e2a"
     },
     {
       "path": ".gitignore",
-      "size_bytes": 193,
-      "sha256": "bcd27d730851d69750c86e33f66426472cf1eac4900ea74cdecb453b3a86235a"
+      "size_bytes": 1446,
+      "sha256": "5de8528dc4fe9c04bdcdbf274af124ed1e3850767df36624f9c42e2f327c39bd"
     },
     {
       "path": "CHANGELOG.md",
-      "size_bytes": 3003,
-      "sha256": "03c3dd92b8f439315451d4d8fcf64dbc27b6b1c69fe0a05a0e7705d747a2b953"
+      "size_bytes": 3609,
+      "sha256": "c295699a43eb6472517693a21a592af6d401e9cc8eefe87d69cf02bb5e84cead"
     },
     {
       "path": "CONTRIBUTING.md",
@@ -36,8 +47,8 @@
     },
     {
       "path": "README.md",
-      "size_bytes": 8307,
-      "sha256": "8e7ce07051e8c0fa1f14cfdbb81c852a6f52a4b15ada875198947545c3d11453"
+      "size_bytes": 9784,
+      "sha256": "37c81f338dd4373b8e52df6b72ea271c252a03e63fa1ffa502adc14c4344e513"
     },
     {
       "path": "SECURITY.md",
@@ -56,13 +67,13 @@
     },
     {
       "path": "article/article.md",
-      "size_bytes": 10858,
-      "sha256": "e631556e5994379bb16edc67a2a1a33d3763f87a89cae60c087302c4d83ac895"
+      "size_bytes": 10977,
+      "sha256": "d131c5bc75d52f4d9d94c14aa94a9ff3dc83c7e3cec1dfa066e56ff16829402c"
     },
     {
       "path": "article/launch-copy.md",
-      "size_bytes": 2750,
-      "sha256": "f3be0c08371859471a8d92577fe03ac2399f3d90ffbe583220709940bfb75566"
+      "size_bytes": 3253,
+      "sha256": "088f2aadaaec398239f9fece4e2f2991f30f1f1795bf89c77d42de982e174dd8"
     },
     {
       "path": "article/media-map.md",
@@ -206,13 +217,13 @@
     },
     {
       "path": "release/APPROVAL.md",
-      "size_bytes": 4934,
-      "sha256": "2301c70c4facbdd54a7e7aabda8066e2882a2614cc66e549af73ad8679f142c1"
+      "size_bytes": 4823,
+      "sha256": "2c7d9d41879e18f12314ff56a5c5b32fc2cd5bd712c8d4cf1d2ea41ae3823282"
     },
     {
       "path": "release/reviews/review-dispositions.md",
-      "size_bytes": 11302,
-      "sha256": "24e51480da0b6955664b4e3e5a120fb19538f00784a3939d16a8a4c8eee50380"
+      "size_bytes": 14710,
+      "sha256": "4b0a5b9efb5b70bb36b4e49a5d487ba2faa1f2bf4189984ba145e182ac96939c"
     },
     {
       "path": "requirements-dev.txt",
@@ -226,8 +237,8 @@
     },
     {
       "path": "scripts/build_release_manifest.py",
-      "size_bytes": 3375,
-      "sha256": "f1eba69a028a0f9c0d4a6fe85a93267d7a2579f483ec080e339f097b4ec007f5"
+      "size_bytes": 4373,
+      "sha256": "e535e44ca21fdc2d75685c31e1288a51b84c00fe2d8718af4952fd6dbd53849d"
     },
     {
       "path": "scripts/privacy_scan.py",
@@ -256,8 +267,8 @@
     },
     {
       "path": "tests/test_package.py",
-      "size_bytes": 35430,
-      "sha256": "d9217f7f823eca31e76e3e3c23f1c9a0e2b7f68a0b027b89474ede99227f6563"
+      "size_bytes": 39147,
+      "sha256": "2be6b82675d1377de6a069ee02b7b3020412709337ed1e443838efeef84a44df"
     },
     {
       "path": "video/README.md",
@@ -315,12 +326,31 @@
     "python scripts/validate.py",
     "python -m unittest discover -s tests -v",
     "python scripts/privacy_scan.py",
+    "python -m compileall -q scripts media video tests",
     "ruff check scripts media video tests",
+    "gitleaks git --redact --verbose --log-opts=--all .",
     "git diff --cached --check"
   ],
+  "security_scan": {
+    "tool": "gitleaks",
+    "version": "8.30.1",
+    "scope": "all_reachable_commits",
+    "asset_sha256": "551f6fc83ea457d62a0d98237cbad105af8d557003051f41f3e7ca7b3f2470eb"
+  },
   "publication_gates": {
-    "public_github_repository": "not_approved",
-    "x_article": "not_approved",
-    "x_launch_post_and_replies": "not_approved"
+    "public_github_repository": "published_verified",
+    "github_release_v0_1_0": "approved_pending_creation",
+    "x_article_and_launch_bundle": "not_published",
+    "x_repository_launch_post": "published_verified"
+  },
+  "publication_receipts": {
+    "x_repository_launch_post": {
+      "status": "published_verified",
+      "url": "https://x.com/VoltraceGG/status/2077436347292271041",
+      "post_id": "2077436347292271041",
+      "author_username": "VoltraceGG",
+      "readback_source": "X API v2",
+      "verified_on": "2026-07-15"
+    }
   }
 }

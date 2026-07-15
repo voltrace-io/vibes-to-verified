@@ -86,3 +86,49 @@ This section records external review of the substantive candidate. It does not s
 ## Remaining Gate
 
 A narrow reviewer must verify that the receipt-only successor changes only review-state documentation and manifest bindings relative to the substantive candidate. Publication remains unauthorized until that review passes and the user separately approves each public gate.
+
+## Superseding v0.1.0 Release Round - 2026-07-15
+
+The findings and dispositions above are historical receipts for earlier
+candidates. They are preserved rather than rewritten. The following later
+state supersedes their publication-state language:
+
+- the repository URL and sanitized case-study URL were bound only after public
+  read-back;
+- the repository-focused X launch post was approved through its Discord card,
+  published, and verified through X API v2 at
+  <https://x.com/VoltraceGG/status/2077436347292271041>;
+- the draft X Article and its separate Article-launch post/replies remain
+  unpublished and outside that approval;
+- GitHub `v0.1.0` tag and release creation were authorized for the exact frozen
+  candidate only after validation, fresh independent review, and public CI
+  succeed;
+- the release round adds full-history Gitleaks CI, Dependabot, SHA-pinned GitHub
+  Actions, durable tag-pinned install commands, and a Hermes Desktop literal
+  `/v2v` dispatch receipt scoped to the unchanged `SKILL.md` bytes.
+
+### Frozen substantive candidate reviews
+
+The three independent lanes below reviewed the same staged manifest blob,
+`4a6855b1827781b0c944fba945334b23fa1c4d34`, before these receipt rows were
+appended. Their lane-specific snapshot fingerprints use different review
+scripts and are retained in the private review record.
+
+| Review lane | Disposition | Evidence boundary |
+|---|---|---|
+| Contract/runtime | GREEN - no contract blocker | Manifest coverage matched all 56 non-self artifacts; validator, 59/59 tests, privacy scanner, Ruff, compilation, staged whitespace, workflow lint, install-script parsing, staged Gitleaks, and all-history Gitleaks passed. The unchanged `SKILL.md` hash supports the narrowly scoped Hermes Desktop dispatch claim. |
+| Privacy/disclosure | GREEN - no privacy or security blocker in the bounded scope | All 57 tracked files were enumerated; Gitleaks found no leak in the staged candidate or any of 15 reachable commits; media metadata and visual samples disclosed no account data, local identifiers, raw strategy, or private implementation details. Ignored `.private/` browser and evidence captures contain credential-like local material and must remain private; they have never been tracked. |
+| Editorial/source/release | GREEN - no release blocker | Public-value claims, source boundaries, rights language, install paths, the verified repository-post receipt, and the unpublished Article boundary were consistent. The Article's sanitized-case link was subsequently changed from mutable `main` to immutable `v0.1.0`; the tag must exist before that link resolves. |
+
+The later Hermes-generated reference-only edit occurred in the installed clone
+after the scoped proof invocation ended. It did not touch this candidate or
+`SKILL.md`; the exact edit was removed, the installed clone was reconfirmed
+clean at `a88ecf9`, and a private before/after remediation receipt was retained.
+The runtime claim remains limited to the earlier observed invocation and does
+not assert that later Hermes turns were side-effect-free.
+
+Appending these receipts, updating the gate table, and correcting the tag link
+creates a successor candidate. Rebuild the manifest and require a narrow
+exact-diff review of only those successor changes before relying on this receipt
+for tag creation. Until that review and exact-commit public CI pass, the tag
+gate remains closed.

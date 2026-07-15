@@ -44,6 +44,52 @@ class PackageContractTests(unittest.TestCase):
         self.assertEqual(frontmatter["name"], "v2v")
         self.assertLessEqual(len(frontmatter["description"]), 1024)
 
+    def test_readme_documents_portable_hermes_install_paths(self):
+        readme = (ROOT / "README.md").read_text(encoding="utf-8")
+        self.assertIn("$env:HERMES_HOME", readme)
+        self.assertIn('GetFolderPath("LocalApplicationData")', readme)
+        self.assertIn('${HERMES_HOME:-$HOME/.hermes}', readme)
+        self.assertIn('"$hermes_home/skills/v2v"', readme)
+        self.assertEqual(
+            readme.count("git clone --branch v0.1.0 --depth 1"),
+            3,
+        )
+
+    def test_readme_keeps_release_and_runtime_claims_scoped(self):
+        readme = (ROOT / "README.md").read_text(encoding="utf-8")
+        normalized = " ".join(readme.split())
+        self.assertIn("`v0.1.0` is the initial public release", normalized)
+        self.assertIn(
+            "a literal `/v2v` invocation in Hermes Desktop loaded the installed V2V skill",
+            normalized,
+        )
+        self.assertIn("it does not establish Claude Code live discovery or execution", normalized)
+
+    def test_gitignore_keeps_unexpected_nested_secret_like_files_visible(self):
+        for relative in [
+            "docs/credentials-guide.json",
+            "docs/oauth-flow.json",
+            "tests/auth.json",
+            "tests/session.json",
+            "fixtures/demo.db",
+        ]:
+            with self.subTest(relative=relative):
+                result = subprocess.run(
+                    ["git", "check-ignore", "--no-index", "--quiet", relative],
+                    cwd=ROOT,
+                    check=False,
+                )
+                self.assertNotEqual(result.returncode, 0)
+
+        for relative in [".env", "auth.json", "local.db"]:
+            with self.subTest(relative=relative):
+                result = subprocess.run(
+                    ["git", "check-ignore", "--no-index", "--quiet", relative],
+                    cwd=ROOT,
+                    check=False,
+                )
+                self.assertEqual(result.returncode, 0)
+
     def test_skill_enforces_schema_valid_final_evidence_card(self):
         skill = (ROOT / "SKILL.md").read_text(encoding="utf-8")
         required_contract_phrases = [
@@ -584,25 +630,24 @@ class PackageContractTests(unittest.TestCase):
         self.assertIn("'recovery_visibility' is a required property", messages)
         self.assertIn("'readback_source' is a required property", messages)
 
-    def test_publication_destinations_remain_placeholder_gated(self):
-        repository_url = re.compile(
-            r"https?://github\.com/[^/\s]+/[^\s)#]+", re.IGNORECASE
+    def test_publication_destinations_distinguish_verified_and_unpublished(self):
+        repository_url = "https://github.com/voltrace-io/vibes-to-verified"
+        case_study_url = (
+            repository_url
+            + "/blob/v0.1.0/examples/options-paper-trading-risk-control.md"
         )
-        for relative in [
-            "article/article.md",
-            "article/launch-copy.md",
-            "article/media-map.md",
-            "release/APPROVAL.md",
-        ]:
-            text = (ROOT / relative).read_text(encoding="utf-8")
-            with self.subTest(path=relative):
-                self.assertIsNone(repository_url.search(text))
         article = (ROOT / "article" / "article.md").read_text(encoding="utf-8")
         launch = (ROOT / "article" / "launch-copy.md").read_text(encoding="utf-8")
-        self.assertIn("{{REPOSITORY_URL}}", article)
-        self.assertIn("{{CASE_STUDY_URL}}", article)
+        approval = (ROOT / "release" / "APPROVAL.md").read_text(encoding="utf-8")
+        self.assertIn(repository_url, article)
+        self.assertIn(case_study_url, article)
+        self.assertIn(repository_url, launch)
+        self.assertIn(repository_url, approval)
+        self.assertNotIn("{{REPOSITORY_URL}}", article)
+        self.assertNotIn("{{CASE_STUDY_URL}}", article)
+        self.assertNotIn("{{REPOSITORY_URL}}", launch)
+        self.assertIn("GitHub release approved", approval)
         self.assertIn("{{ARTICLE_URL}}", launch)
-        self.assertIn("{{REPOSITORY_URL}}", launch)
         social_svg = (ROOT / "media" / "exports" / "github-social-card.svg").read_text(
             encoding="utf-8"
         )
@@ -660,9 +705,53 @@ class PackageContractTests(unittest.TestCase):
                 self.assertEqual(len(image.getexif()), 0)
 
     def test_release_manifest_matches_staged_commit_blobs(self):
-        manifest = json.loads((ROOT / "release" / "manifest.json").read_text(encoding="utf-8"))
-        self.assertEqual(manifest["status"], "local_candidate_not_published")
-        self.assertTrue(all(value == "not_approved" for value in manifest["publication_gates"].values()))
+        manifest_path = ROOT / "release" / "manifest.json"
+        manifest_bytes = manifest_path.read_bytes()
+        self.assertNotIn(b"\r\n", manifest_bytes)
+        manifest = json.loads(manifest_bytes.decode("utf-8"))
+        self.assertEqual(
+            manifest["repository_url"],
+            "https://github.com/voltrace-io/vibes-to-verified",
+        )
+        self.assertEqual(manifest["version"], "0.1.0")
+        self.assertEqual(manifest["status"], "release_candidate")
+        self.assertEqual(
+            manifest["publication_gates"],
+            {
+                "public_github_repository": "published_verified",
+                "github_release_v0_1_0": "approved_pending_creation",
+                "x_article_and_launch_bundle": "not_published",
+                "x_repository_launch_post": "published_verified",
+            },
+        )
+        self.assertEqual(
+            manifest["publication_receipts"]["x_repository_launch_post"],
+            {
+                "status": "published_verified",
+                "url": "https://x.com/VoltraceGG/status/2077436347292271041",
+                "post_id": "2077436347292271041",
+                "author_username": "VoltraceGG",
+                "readback_source": "X API v2",
+                "verified_on": "2026-07-15",
+            },
+        )
+        self.assertEqual(
+            manifest["security_scan"],
+            {
+                "tool": "gitleaks",
+                "version": "8.30.1",
+                "scope": "all_reachable_commits",
+                "asset_sha256": "551f6fc83ea457d62a0d98237cbad105af8d557003051f41f3e7ca7b3f2470eb",
+            },
+        )
+        self.assertIn(
+            "python -m compileall -q scripts media video tests",
+            manifest["verification_commands"],
+        )
+        self.assertIn(
+            "gitleaks git --redact --verbose --log-opts=--all .",
+            manifest["verification_commands"],
+        )
         for artifact in manifest["artifacts"]:
             blob = subprocess.check_output(
                 ["git", "show", f":{artifact['path']}"], cwd=ROOT

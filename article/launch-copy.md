@@ -1,6 +1,20 @@
 # Vibes to Verified Launch Copy
 
-Before Article approval, bind the verified repository and case-study URLs into the Article. After Article read-back, bind `{{ARTICLE_URL}}` into the launch copy. Public source URLs are verified references.
+The verified repository and sanitized case-study URLs are bound into the Article.
+After Article read-back, bind `{{ARTICLE_URL}}` into the launch copy. Public
+source URLs are verified references.
+
+## Published Repository Launch Post
+
+The repository-focused launch post was approved through the Discord publication
+card and published on 2026-07-15:
+
+<https://x.com/VoltraceGG/status/2077436347292271041>
+
+Its author, text, post ID, and attached video were read back through X API v2.
+The Article and the broader Article-launch copy below remain unpublished and
+require their own approval; do not treat the repository post as approval for
+either one.
 
 ## Recommended Launch Post
 
@@ -36,7 +50,7 @@ the skill is open source:
 
 make your agents prove it.
 
-{{REPOSITORY_URL}}
+https://github.com/voltrace-io/vibes-to-verified
 ```
 
 Attach the GitHub social card or real repository screenshot.
@@ -100,7 +114,7 @@ format: article
 urgency: timely
 primary_objective: authority
 source_url: https://cdn.openai.com/pdf/04d1d1e4-bc75-476a-97cf-49055cd98d31/cdc_prompt.pdf
-repository_url: "{{REPOSITORY_URL}}"
+repository_url: "https://github.com/voltrace-io/vibes-to-verified"
 publication_status: draft_only
 ```
 

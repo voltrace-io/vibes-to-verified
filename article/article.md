@@ -202,7 +202,7 @@ those findings were also reproduced and repaired.
 
 a new reviewer inspected the final artifact and found no remaining critical blockers within the reviewed boundary.
 
-the internal verification record, summarized in [the sanitized public case]({{CASE_STUDY_URL}}), reported:
+the internal verification record, summarized in [the sanitized public case](https://github.com/voltrace-io/vibes-to-verified/blob/v0.1.0/examples/options-paper-trading-risk-control.md), reported:
 
 - 186 passing tests
 - 42 passing subtests
@@ -256,7 +256,7 @@ verification should reduce uncertainty, not manufacture ceremony.
 
 i packaged the workflow as an MIT-licensed Agent Skill:
 
-[repository]({{REPOSITORY_URL}})
+[repository](https://github.com/voltrace-io/vibes-to-verified)
 
 it includes:
 
