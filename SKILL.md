@@ -342,6 +342,7 @@ Do not manufacture a multi-agent ceremony when a direct test decides the questio
 8. **Infinite search.** The workflow refuses legitimate `BLOCKED` or `RED` outcomes.
 9. **Disclosure leakage.** Verification receipts expose secrets, private paths, strategies, account data, or exploitable implementation details.
 10. **Green without scope.** The verdict silently expands beyond what was tested.
+11. **Dispatcher substitution.** Prompt text beginning with `/skill-name` is treated as proof that the platform resolved and loaded the skill. Require a skills-enabled session, the intended interface dispatcher, skill-load read-back, and a separately validated output artifact.
 
 ## Privacy and Publication
 
@@ -375,6 +376,8 @@ See [`references/editorial-source-release-review.md`](references/editorial-sourc
 - [ ] Repairs have regression evidence
 - [ ] Full relevant tests run against final bytes
 - [ ] Natural execution is used before claiming `V4`
+- [ ] Slash-command claims use a skills-enabled session and the intended interface dispatcher
+- [ ] Generated schema-backed outputs pass the actual validator as raw artifacts
 - [ ] External outcomes are read back when possible
 - [ ] Verdict and V2V level remain separate
 - [ ] Scope and limitations are visible

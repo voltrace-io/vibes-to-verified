@@ -30,6 +30,31 @@ The public product title may remain **Vibes to Verified**. Hermes derives the co
 
 A successful command lookup alone is V2-style test evidence. The real platform invocation plus observable skill-load/read-back can support V4 within that named Hermes/profile/platform scope.
 
+## Dispatcher and toolset preflight
+
+Before treating a slash-prefixed message as a command test:
+
+1. Confirm the session has the `skills` toolset enabled. A restricted session that reports skills disabled or `0 skills` cannot establish slash-command behavior.
+2. Confirm the target skill appears in the active command index or completion surface.
+3. Name the interface being tested: gateway, modern TUI, classic REPL, webhook, or noninteractive query. Do not assume those paths share the same dispatcher.
+4. Verify that the interface routes the command through Hermes' skill-command builder or dispatcher. A model response to ordinary prompt text beginning with `/v2v` is not dispatch evidence.
+5. Preserve the literal command, session ID, skill-load/read-back, installed revision, and final output.
+
+If a constrained test disables the resolver, classify the result as a prompt-following test and rerun through the intended dispatcher. Capture the durable preflight and reroute procedure rather than recording a permanent claim that an interface is broken.
+
+## Output-contract proof is a separate gate
+
+Natural command execution does not establish that the generated artifact satisfies the skill's promised format. When the result is schema-backed:
+
+- capture raw YAML or JSON without Markdown fences when validating the file directly;
+- run the package's actual validator and preserve its exit code and output;
+- require schema-valid identifiers, evidence records, claim linkage, artifact binding, level-specific fields, limitations, and disclosure boundaries;
+- treat visually plausible but schema-invalid output as a reproduced failure;
+- repair the skill's output instructions, add regression coverage, install the new exact revision, and rerun the natural path;
+- do not build promotional media until the final natural-path output validates.
+
+Discovery, dispatch, execution, schema validity, and operational proof are distinct claims. Report each separately.
+
 ## Source tests versus installed-runtime tests
 
 Keep these boundaries separate:
@@ -45,7 +70,9 @@ Before issuing a release-readiness verdict:
 
 - distinguish tracked files, unstaged tracked changes, and untracked production assets;
 - decide explicitly whether review videos, QC notes, and production sources are public launch artifacts or private inputs;
+- make public package tests enumerate the Git-tracked release boundary, such as through `git ls-files`, instead of recursively ingesting unrelated untracked private archives;
 - run directory-wide checks against the intended candidate boundary, not a mixture of tracked release files and unrelated untracked production files;
+- after any tracked documentation, test, or skill edit, rebuild and rebind manifests that hash candidate bytes before expecting CI to pass;
 - rebuild the manifest only from staged candidate blobs;
 - review the exact post-repair bytes.
 

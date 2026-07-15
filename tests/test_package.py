@@ -57,6 +57,18 @@ class PackageContractTests(unittest.TestCase):
             with self.subTest(phrase=phrase):
                 self.assertIn(phrase, skill)
 
+    def test_skill_distinguishes_dispatch_from_prompt_text(self):
+        skill = (ROOT / "SKILL.md").read_text(encoding="utf-8")
+        reference = (
+            ROOT / "references" / "hermes-natural-path-verification.md"
+        ).read_text(encoding="utf-8")
+        self.assertIn("Dispatcher substitution", skill)
+        self.assertIn("skills-enabled session", skill)
+        self.assertIn("intended interface dispatcher", skill)
+        self.assertIn("Dispatcher and toolset preflight", reference)
+        self.assertIn("A model response to ordinary prompt text beginning with `/v2v` is not dispatch evidence", reference)
+        self.assertIn("Output-contract proof is a separate gate", reference)
+
     def test_template_matches_schema(self):
         self.assertEqual(
             validate.validate_card(ROOT / "templates" / "evidence-card.yaml"), []

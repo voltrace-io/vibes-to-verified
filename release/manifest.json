@@ -21,8 +21,8 @@
     },
     {
       "path": "CHANGELOG.md",
-      "size_bytes": 2737,
-      "sha256": "8af141a13c76c308a856590e94e5bf5f5c3f4a2f407e02d5b8d39c46050602c8"
+      "size_bytes": 3003,
+      "sha256": "03c3dd92b8f439315451d4d8fcf64dbc27b6b1c69fe0a05a0e7705d747a2b953"
     },
     {
       "path": "CONTRIBUTING.md",
@@ -46,8 +46,8 @@
     },
     {
       "path": "SKILL.md",
-      "size_bytes": 17531,
-      "sha256": "fbc1088a68491270010a51df5543e00ea6d4fceec3169cdc0aa3181f064dd255"
+      "size_bytes": 17984,
+      "sha256": "0370fd3c0315e3d309914d47114df4390eaa4b18d68b5a7c8655caeab9127e7d"
     },
     {
       "path": "SOURCES.md",
@@ -186,8 +186,8 @@
     },
     {
       "path": "references/hermes-natural-path-verification.md",
-      "size_bytes": 3069,
-      "sha256": "fba1299a554ba07cd94f07bd423f6a91437b3e5ffa22842dfe693068c5576536"
+      "size_bytes": 5349,
+      "sha256": "e518d675e6d7ff3aba6a06b574871197e3a3c1afce30a107cf684bdbc839e0d1"
     },
     {
       "path": "references/skill-release-and-slash-command-verification.md",
@@ -256,8 +256,8 @@
     },
     {
       "path": "tests/test_package.py",
-      "size_bytes": 34724,
-      "sha256": "60386bbd65003caf8221d2c92005e43fb1c621e7e92ca077678b3cc90b9694f3"
+      "size_bytes": 35430,
+      "sha256": "d9217f7f823eca31e76e3e3c23f1c9a0e2b7f68a0b027b89474ede99227f6563"
     },
     {
       "path": "video/README.md",

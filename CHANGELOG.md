@@ -7,6 +7,8 @@ All notable changes to Vibes to Verified will be recorded here.
 - Replaced placeholder clone commands with the live public repository URL.
 - Added a hard schema-validity gate to `/v2v` final evidence-card output.
 - Added regression coverage for the required schema-output instructions after a natural-path invocation returned structurally invalid YAML.
+- Added dispatcher/toolset preflight guidance so slash-prefixed prompt text cannot be mistaken for command-resolution proof.
+- Restricted Markdown link tests to Git-tracked public files so untracked private production archives cannot contaminate release validation.
 
 ## 0.1.0 — Release Candidate
 
