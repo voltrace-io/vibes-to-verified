@@ -2,7 +2,7 @@
   "project": "vibes-to-verified",
   "version": "0.1.0-rc1",
   "status": "local_candidate_not_published",
-  "generated_on": "2026-07-14",
+  "generated_on": "2026-07-15",
   "artifacts": [
     {
       "path": ".gitattributes",
@@ -36,8 +36,8 @@
     },
     {
       "path": "README.md",
-      "size_bytes": 8239,
-      "sha256": "a2a20cf5d420168dcd7d0c8b3f21758b043e73c99f008f9cb08e60f5767dc52d"
+      "size_bytes": 8307,
+      "sha256": "8e7ce07051e8c0fa1f14cfdbb81c852a6f52a4b15ada875198947545c3d11453"
     },
     {
       "path": "SECURITY.md",
