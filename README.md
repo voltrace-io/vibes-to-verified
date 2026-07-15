@@ -59,7 +59,7 @@ A separate [muted deterministic Manim overview](media/exports/vibes-to-verified-
 ### Claude Code project skill
 
 ```bash
-git clone {{REPOSITORY_URL}} .claude/skills/v2v
+git clone https://github.com/voltrace-io/vibes-to-verified.git .claude/skills/v2v
 ```
 
 Claude Code discovers project skills from `.claude/skills/*/SKILL.md`.
@@ -67,7 +67,7 @@ Claude Code discovers project skills from `.claude/skills/*/SKILL.md`.
 ### Hermes Agent user skill
 
 ```bash
-git clone {{REPOSITORY_URL}} ~/.hermes/skills/v2v
+git clone https://github.com/voltrace-io/vibes-to-verified.git ~/.hermes/skills/v2v
 ```
 
 Run `/reload-skills` after installation, or start a new Hermes session, so the skill index refreshes.
