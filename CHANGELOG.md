@@ -2,6 +2,12 @@
 
 All notable changes to Vibes to Verified will be recorded here.
 
+## Unreleased
+
+- Replaced placeholder clone commands with the live public repository URL.
+- Added a hard schema-validity gate to `/v2v` final evidence-card output.
+- Added regression coverage for the required schema-output instructions after a natural-path invocation returned structurally invalid YAML.
+
 ## 0.1.0 — Release Candidate
 
 - Added the portable Vibes to Verified Agent Skill with the direct `/v2v` command identifier.

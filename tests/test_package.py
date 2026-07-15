@@ -44,6 +44,19 @@ class PackageContractTests(unittest.TestCase):
         self.assertEqual(frontmatter["name"], "v2v")
         self.assertLessEqual(len(frontmatter["description"]), 1024)
 
+    def test_skill_enforces_schema_valid_final_evidence_card(self):
+        skill = (ROOT / "SKILL.md").read_text(encoding="utf-8")
+        required_contract_phrases = [
+            "Schema validity is a hard output gate",
+            "Do not add top-level keys outside the schema",
+            "`claim_id` must match `C-[0-9]{2,}`",
+            "python scripts/validate.py <card-path>",
+            "repair the card and rerun validation",
+        ]
+        for phrase in required_contract_phrases:
+            with self.subTest(phrase=phrase):
+                self.assertIn(phrase, skill)
+
     def test_template_matches_schema(self):
         self.assertEqual(
             validate.validate_card(ROOT / "templates" / "evidence-card.yaml"), []
@@ -599,7 +612,13 @@ class PackageContractTests(unittest.TestCase):
     def test_internal_markdown_links_exist(self):
         missing = []
         link_pattern = re.compile(r"\[[^\]]*\]\(([^)]+)\)")
-        for markdown in ROOT.rglob("*.md"):
+        raw = subprocess.check_output(
+            ["git", "ls-files", "-z", "--", "*.md"], cwd=ROOT
+        )
+        markdown_files = [
+            ROOT / item.decode("utf-8") for item in raw.split(b"\0") if item
+        ]
+        for markdown in markdown_files:
             for target in link_pattern.findall(markdown.read_text(encoding="utf-8")):
                 target = target.split("#", 1)[0].strip()
                 if not target or target.startswith(("http://", "https://", "mailto:", "{{")):

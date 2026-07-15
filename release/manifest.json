@@ -21,8 +21,8 @@
     },
     {
       "path": "CHANGELOG.md",
-      "size_bytes": 2432,
-      "sha256": "5319e3f8b5fe2877070649a6874439b87135e362e0a2db07856a8da58085fc17"
+      "size_bytes": 2737,
+      "sha256": "8af141a13c76c308a856590e94e5bf5f5c3f4a2f407e02d5b8d39c46050602c8"
     },
     {
       "path": "CONTRIBUTING.md",
@@ -46,8 +46,8 @@
     },
     {
       "path": "SKILL.md",
-      "size_bytes": 16343,
-      "sha256": "bdd9898bb086534f92581f86953cb506956de1e4c8fa0bc4b96a7d7df1c87d35"
+      "size_bytes": 17531,
+      "sha256": "fbc1088a68491270010a51df5543e00ea6d4fceec3169cdc0aa3181f064dd255"
     },
     {
       "path": "SOURCES.md",
@@ -256,8 +256,8 @@
     },
     {
       "path": "tests/test_package.py",
-      "size_bytes": 33912,
-      "sha256": "105c88633f2043ca155ee2cd15fa2c1ff2ba4008ec4fd50e08ce08fba8a96e41"
+      "size_bytes": 34724,
+      "sha256": "60386bbd65003caf8221d2c92005e43fb1c621e7e92ca077678b3cc90b9694f3"
     },
     {
       "path": "video/README.md",

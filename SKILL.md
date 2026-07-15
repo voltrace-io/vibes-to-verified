@@ -296,6 +296,26 @@ NEXT: <smallest useful action>
 
 Then provide the full evidence card and claim dispositions.
 
+### Schema-valid evidence card gate
+
+Schema validity is a hard output gate, not an optional formatting preference.
+Before returning the full card:
+
+1. Start from `templates/evidence-card.yaml`; preserve every required top-level field.
+2. Do not add top-level keys outside the schema. Put supporting detail inside the schema-defined fields.
+3. `claim_id` must match `C-[0-9]{2,}` and every evidence record's `supports` list must reference that same ID.
+4. Bind every evidence record's `subject_artifact` exactly to `scope.artifact`.
+5. For `V2+`, include at least one `kind: test` record with `procedure`, `expected`, `observed`, and `repetitions`.
+6. Use only `{claim_id, status, evidence}` in each claim disposition.
+7. Include `disclosure_boundary` even for private or local-only work.
+8. Write the YAML card to a temporary or requested output path and run:
+
+```bash
+python scripts/validate.py <card-path>
+```
+
+If validation reports any error, repair the card and rerun validation before returning it. If the validator cannot run, state that limitation explicitly and do not claim that schema validity was verified. Never return a known schema-invalid card as the final evidence card.
+
 Do not use “proved,” “safe,” “complete,” or “production-ready” without a named scope and evidence level.
 
 ## Lightweight Mode
