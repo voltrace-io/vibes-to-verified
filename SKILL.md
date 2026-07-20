@@ -1,7 +1,7 @@
 ---
 name: v2v
-description: Use when AI-generated work, agent conclusions, code, research, automation, or consequential decisions must move from plausible output to scoped, falsifiable, independently challenged, operationally evidenced results. Applies the V2V Scale, adversarial portfolio search, atomic claims, refutation rounds, and evidence-card reporting without assuming the desired answer exists.
-version: 0.1.0
+description: Use when AI-generated work, agent conclusions, code, research, creative output, automation, or consequential decisions must move from plausible output to scoped, falsifiable, independently challenged, operationally evidenced results. Starts with a four-gate audit anyone can run on any agent — source, test, break it, real — then escalates to the full V2V Scale, adversarial portfolio search, atomic claims, refutation rounds, and evidence-card reporting without assuming the desired answer exists.
+version: 0.2.0
 author: Voltrace
 license: MIT
 metadata:
@@ -26,6 +26,40 @@ The workflow separates two questions:
 A confident answer can be `GREEN / V0`. A rigorously reproduced failure can be `RED / V4`. Never collapse those axes.
 
 > Keep the speed. Add the proof.
+
+## Why Everyone Needs This
+
+Every person using AI agents now faces the same moment: the agent says "done" — and there is no way to tell whether that means *verified* or *confident*. Models produce fluent, complete-sounding output regardless of whether the work survived contact with reality. The failure mode is universal: code that was never run, research that was never sourced, automations that fired once in a demo and never again.
+
+This skill exists so that "done" becomes a claim with a level attached, not a vibe you accept on trust. It works with any agent, any model, any stack. The agent produces the work; you assign the evidence level.
+
+## The Four Gates (start here)
+
+The public fast loop. Four questions, in order, before trusting any agent result:
+
+| Gate | Ask | Pass looks like |
+|---:|---|---|
+| **1. Source** | Show the artifact, data, or config behind the claim. | You can open it and check it yourself. |
+| **2. Test** | Rerun it with the same setup and explicit pass/fail conditions. | It survives the same test twice, not once. |
+| **3. Break it** | A fresh reviewer challenges the final result. | Every objection gets a real answer. |
+| **4. Real** | Run it in the actual workflow, not a demo. | Observable result, with its limits named. |
+
+Then score it:
+
+- **4/4 — verified.** Trust it. Ship it.
+- **3/4 — close.** Fix the gap before you rely on it.
+- **2/4 — risky.** Treat it as a draft, not a result.
+- **0–1/4 — vibes.** Confidence without evidence. Don't trust it yet.
+
+If it stops before gate 4, it isn't verified yet.
+
+`templates/verification-prompts.md` contains paste-ready prompt blocks for each gate that work with any agent (ChatGPT, Claude, Gemini, Cursor, Hermes, custom pipelines), red flags that output is still V0, and domain quick cards for code, research, creative work, automation, and decisions.
+
+The gates are the fast version of the full scale: gate 1 ≈ `V1`, gate 2 ≈ `V2`, gate 3 ≈ `V3`, gate 4 ≈ `V4`. Use the full workflow below when a false conclusion could compound.
+
+## Who Assigns the Level
+
+The operator assigns the V2V level — never the agent whose work is being judged. An agent may report what it ran and attach evidence; the human or an independent reviewer decides what that evidence is worth. Self-assigned "verified" is `V0` with extra confidence.
 
 ## When to Use
 
@@ -199,6 +233,13 @@ claim_id | survives | counter_evidence | reproduction | severity | smallest_repa
 
 A claim survives only when no refuter produces valid counter-evidence within the defined scope. “Looks correct” is not a refutation result.
 
+Track reviewer liveness separately from the candidate verdict:
+
+- process status: `RUNNING`, `STUCK`, `TIMED_OUT`, or `COMPLETE`;
+- candidate verdict: `GREEN`, `YELLOW`, `RED`, `BLOCKED`, or not yet issued.
+
+Give each reviewer a bounded command/time budget and require a durable final verdict. When the budget expires without a verdict, mark the reviewer `STUCK` or `TIMED_OUT` and replace it; do not keep reporting vague “pending” status. In user updates, name which status you mean so “the system is active” is never confused with “the reviewer is active.”
+
 ### Step 6: Reproduce, Repair, and Re-run
 
 For every credible failure:
@@ -239,6 +280,10 @@ When the subject is an Agent Skill release, do not collapse the Git commit, stag
 - After repairing an adversarial finding, freeze the candidate and send the new exact commit to fresh reviewers; prior approval is stale.
 
 See [`references/hermes-natural-path-verification.md`](references/hermes-natural-path-verification.md) for the focused Hermes runtime boundary and [`references/skill-release-and-slash-command-verification.md`](references/skill-release-and-slash-command-verification.md) for the cross-platform command matrix, exact-candidate sequence, and media-promotion checklist.
+
+For repositories that cannot be cleanly reconstructed by `git archive` or whose tests hard-code the live repository root, use [`references/exact-candidate-nonrelocatable-repos.md`](references/exact-candidate-nonrelocatable-repos.md). It covers gitlinks, path-encoding mismatches, detached-clone testing, Python path contamination, layered exact-byte proof, stale safety-gate fixtures, and the rule that reviewer timeout is not V3 evidence.
+
+When authority depends on evidence being first-party, official, fresh, or captured through a particular path, use [`references/provenance-boundary-hardening.md`](references/provenance-boundary-hardening.md). It covers parser-versus-capture trust, fixed production sources, evidence-bearing internal APIs, adversarial provenance matrices, and hash-binding mutable external runtimes.
 
 ### Step 8: Issue the Evidence Card
 
@@ -343,6 +388,13 @@ Do not manufacture a multi-agent ceremony when a direct test decides the questio
 9. **Disclosure leakage.** Verification receipts expose secrets, private paths, strategies, account data, or exploitable implementation details.
 10. **Green without scope.** The verdict silently expands beyond what was tested.
 11. **Dispatcher substitution.** Prompt text beginning with `/skill-name` is treated as proof that the platform resolved and loaded the skill. Require a skills-enabled session, the intended interface dispatcher, skill-load read-back, and a separately validated output artifact.
+12. **CLI-only provenance hardening.** The natural command rejects overrides, but an imported function still accepts a bare authority conclusion such as `eligible` or `approved`. Refute the callable API, not only the wrapper.
+13. **Mutable-runtime substitution.** A committed test silently imports live code outside the candidate and is reported as exact-commit proof. Prefer committed mirrors or bind every external runtime artifact by hash and disclose the composite candidate.
+14. **Self-attesting provenance.** Source role, capture method, and hash are accepted from one caller-controlled payload without recomputing against raw bytes or an independently bound capture receipt.
+15. **Partial reconciliation.** The headline total matches, but another authority-bearing field such as verified followers or platform status can diverge from the bound source.
+16. **Relative-only freshness.** Two stale artifacts agree with each other and are therefore treated as fresh. Compare against a trusted wall-clock `as_of`.
+17. **Reviewer limbo.** An over-budget reviewer is called “pending” indefinitely. Separate reviewer liveness from candidate verdict and replace stuck lanes.
+18. **Self-assigned level.** The agent whose work is being judged declares itself verified. The operator assigns the level; self-reported “verified” without external evidence is `V0`.
 
 ## Privacy and Publication
 

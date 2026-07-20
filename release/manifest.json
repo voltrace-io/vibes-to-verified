@@ -3,7 +3,7 @@
   "repository_url": "https://github.com/voltrace-io/vibes-to-verified",
   "version": "0.1.0",
   "status": "release_candidate",
-  "generated_on": "2026-07-15",
+  "generated_on": "2026-07-20",
   "artifacts": [
     {
       "path": ".gitattributes",
@@ -57,8 +57,8 @@
     },
     {
       "path": "SKILL.md",
-      "size_bytes": 17984,
-      "sha256": "0370fd3c0315e3d309914d47114df4390eaa4b18d68b5a7c8655caeab9127e7d"
+      "size_bytes": 23208,
+      "sha256": "6fc9a9358bafa163168694e34354acd5b51f66e96829494d592ae61c4e8a2746"
     },
     {
       "path": "SOURCES.md",
@@ -196,9 +196,19 @@
       "sha256": "4874f28014894d33423d687991ac79a44e211aeafaba23beba2b65519d8b63e0"
     },
     {
+      "path": "references/exact-candidate-nonrelocatable-repos.md",
+      "size_bytes": 3128,
+      "sha256": "c2986147de9ad652b1d147da1596dbcede7029a51de58edae8d8cb46b1eb7633"
+    },
+    {
       "path": "references/hermes-natural-path-verification.md",
       "size_bytes": 5349,
       "sha256": "e518d675e6d7ff3aba6a06b574871197e3a3c1afce30a107cf684bdbc839e0d1"
+    },
+    {
+      "path": "references/provenance-boundary-hardening.md",
+      "size_bytes": 7399,
+      "sha256": "7dbcf8b58049c282e5ad45a3538c73a4ad913d2b18b4ec2a80e46b8210a5c7c0"
     },
     {
       "path": "references/skill-release-and-slash-command-verification.md",
@@ -264,6 +274,11 @@
       "path": "templates/refutation-round.md",
       "size_bytes": 1519,
       "sha256": "c7806621424ac62c82ea383aabfba0326a17fff122df4e06bf29772eeffe0e11"
+    },
+    {
+      "path": "templates/verification-prompts.md",
+      "size_bytes": 3337,
+      "sha256": "f76453712d32eb84205dc421423f6eb85d341c18df81f72c4bff94705ea9e2bf"
     },
     {
       "path": "tests/test_package.py",
